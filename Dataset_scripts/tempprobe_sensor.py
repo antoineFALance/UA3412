@@ -2,7 +2,8 @@ import pandas as pd
 import os
 from sqlalchemy import create_engine
 
-path_to_sensor_directory="/home/antoine/Documents/MASTER/UA3412/temprobe_avg_hr"
+# path_to_sensor_directory="/home/antoine/Documents/MASTER/UA3412/data/temprobe_avg_hr/"
+path_to_sensor_directory="/home/antoine/Documents/MASTER/UA3412/data/auxiliarydata/hourly_readings/"
 directory = os.fsencode(path_to_sensor_directory)
 df=pd.DataFrame(columns=['year','month','day','hour','value'])
 gasApplianceList=[]
