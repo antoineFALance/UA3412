@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="sensor and gas_pulse 20240525">
-      <change afterPath="$PROJECT_DIR$/Dataset_scripts/consolidate_weather.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset_scripts/final_dataSet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset_scripts/gas_pulse.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset_scripts/hourly_readings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset_scripts/house_captors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset_scripts/sensor_hourly_values_cleaned.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset_scripts/weather.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset_scripts/weather_consolidate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/physical_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correlation_identification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gas_pulse.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset_scripts/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tempprobe_sensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset_scripts/tempprobe_sensor.py" afterDir="false" />
+    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="identification par correlation des signaux de montée en température 20240608">
+      <change beforePath="$PROJECT_DIR$/correlation_identification.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset_scripts/correlation_identification.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,13 +89,22 @@
       <option name="project" value="LOCAL" />
       <updated>1715778588185</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="identification par correlation des signaux de montée en température 20240608">
+      <option name="closed" value="true" />
+      <created>1717850822858</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717850822858</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="sensor and gas_pulse 20240525" />
-    <option name="LAST_COMMIT_MESSAGE" value="sensor and gas_pulse 20240525" />
+    <MESSAGE value="identification par correlation des signaux de montée en température 20240608" />
+    <option name="LAST_COMMIT_MESSAGE" value="identification par correlation des signaux de montée en température 20240608" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -153,8 +150,8 @@
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/correlation_identification.py</url>
-          <line>52</line>
+          <url>file://$PROJECT_DIR$/Dataset_scripts/correlation_identification.py</url>
+          <line>55</line>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
