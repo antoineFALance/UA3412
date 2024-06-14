@@ -27,7 +27,7 @@ directory = os.fsencode(PATH_TO_INPUT_DIR_DATA)
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
     fullFileName=PATH_TO_INPUT_DIR_DATA+filename
-    # PATH_TO_INPUT_DATA= "/data/weather_home62.csv"
+    # PATH_TO_INPUT_DATA= "/data_/weather_home62.csv"
     input_=pd.read_csv(fullFileName,sep=";")
     input_['datetime']=pd.to_datetime(input_[['year','month','day','hour']])
     input_.sort_values(by=['datetime'],inplace=True)
