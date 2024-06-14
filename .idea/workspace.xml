@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="identification par correlation des signaux de montée en température 20240608">
-      <change beforePath="$PROJECT_DIR$/correlation_identification.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset_scripts/correlation_identification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/UA3412.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UA3412.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dataset_scripts/correlation_identification.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset_scripts/correlation_identification.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2gH1NJ0cr1IJizCQxFl2dujEGOw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -33,25 +36,10 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.consolidate_weather.executor": "Run",
-    "Python.correlation_identification.executor": "Debug",
-    "Python.final_dataSet.executor": "Run",
-    "Python.gas_pulse.executor": "Run",
-    "Python.hourly_readings.executor": "Run",
-    "Python.house_captors.executor": "Run",
-    "Python.physical_model.executor": "Run",
-    "Python.psycopg2.executor": "Debug",
-    "Python.sensor.executor": "Debug",
-    "Python.sensor_hourly_values_cleaned.executor": "Run",
-    "Python.tempprobe_sensor.executor": "Run",
-    "Python.weather.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Dataset" />
@@ -151,7 +139,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Dataset_scripts/correlation_identification.py</url>
-          <line>55</line>
+          <line>61</line>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
