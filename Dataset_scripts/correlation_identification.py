@@ -29,7 +29,9 @@ def cross_correlation(x, y):
 
     return correlation
 
-PATH_TO_INPUT_DATA= "/data/weather_home62.csv"
+CWD=os.getcwd()
+PCWD=os.path.dirname(CWD)
+PATH_TO_INPUT_DATA= PCWD+"/data/weather_home62.csv"
 input_=pd.read_csv(PATH_TO_INPUT_DATA,sep=";")
 input_['datetime']=pd.to_datetime(input_[['year','month','day','hour']])
 input_.sort_values(by=['datetime'],inplace=True)
