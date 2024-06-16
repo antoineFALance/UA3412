@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="identification par correlation des signaux de montée en température 20240608">
-      <change beforePath="$PROJECT_DIR$/.idea/UA3412.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UA3412.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="Modification du script correlation_identification.py&#10;20240615">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dataset_scripts/correlation_identification.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset_scripts/correlation_identification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home106.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home106.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home128.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home128.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home136.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home136.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home140.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home140.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home145.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home145.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home162.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home162.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home171.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home171.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home225.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home225.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home228.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home228.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home242.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home242.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home249.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home249.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home255.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home255.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home266.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home266.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home276.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home276.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home311.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home311.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home328.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home328.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home61.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home61.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home62.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home62.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home63.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home63.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home65.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home65.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home73.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home73.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_home90.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home90.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +48,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2gH1NJ0cr1IJizCQxFl2dujEGOw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -36,10 +59,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.correlation_identification.executor": "Run",
+    "git-widget-placeholder": "master"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Dataset" />
@@ -48,7 +73,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
+        <option value="bundled-python-sdk-5b207ade9991-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17890.14" />
       </set>
     </attachedChunks>
   </component>
@@ -85,14 +110,32 @@
       <option name="project" value="LOCAL" />
       <updated>1717850822858</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ajout des dataset par habitation">
+      <option name="closed" value="true" />
+      <created>1718379512703</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718379512703</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Modification du script correlation_identification.py&#10;20240615">
+      <option name="closed" value="true" />
+      <created>1718457608432</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718457608432</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="sensor and gas_pulse 20240525" />
     <MESSAGE value="identification par correlation des signaux de montée en température 20240608" />
-    <option name="LAST_COMMIT_MESSAGE" value="identification par correlation des signaux de montée en température 20240608" />
+    <MESSAGE value="Ajout des dataset par habitation" />
+    <MESSAGE value="Modification du script correlation_identification.py&#10;20240615" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modification du script correlation_identification.py&#10;20240615" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -139,8 +182,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Dataset_scripts/correlation_identification.py</url>
-          <line>61</line>
-          <option name="timeStamp" value="72" />
+          <line>68</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Dataset_scripts/correlation_identification.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
