@@ -4,8 +4,6 @@ import re
 from matplotlib import pyplot as plt
 import numpy as np
 from math import sqrt
-import scipy.optimize as so
-from statistics import mean
 from itertools import chain
 import sys
 is_windows = hasattr(sys, 'getwindowsversion')
