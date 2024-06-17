@@ -5,32 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240617">
-      <change afterPath="$PROJECT_DIR$/Models/CNN/CNN_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/2R2C_model.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/error_rate.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home106_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home128_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home136_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home140_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home145_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home162_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home171_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home225_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home228_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home242_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home249_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home255_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home266_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home276_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home311_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home328_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home61_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home62_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home63_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home65_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home73_result_model.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_/2R2C_model/home90_result_model.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/2R2C/verification_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/2R2C/verification_plots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Time serie/time_serie_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/UA3412.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UA3412.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/CNN/CNN_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CNN/CNN_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1718613066591</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="20240617">
+      <created>1718613550673</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718613550673</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
