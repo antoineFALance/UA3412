@@ -5,6 +5,8 @@ from matplotlib import pyplot as plt
 import numpy as np
 import scipy.optimize as so
 from statistics import mean
+import sys
+is_windows = hasattr(sys, 'getwindowsversion')
 
 def simpleRC(inputs, Ri, Ro, Ci, Ce):
     time = range(inputs.shape[0])
@@ -22,9 +24,15 @@ def simpleRC(inputs, Ri, Ro, Ci, Ce):
         te[t] = te[t - 1] + dt / Ce * ((ti[t - 1] - te[t - 1]) / Ri + (to[t - 1] - te[t - 1]) / Ro)
     return ti
 
-PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.getcwd())+"/data_/signal_dataset/"
-PATH_TO_OUTPUT_DIR_DATA=os.path.dirname(os.getcwd())+"/data_/2R2C_model/"
+# PATH DEFINITION
+if is_windows:
+    PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.path.dirname(os.getcwd()))+"\\data_\\signal_dataset\\"
+    PATH_TO_OUTPUT_DIR_DATA=os.path.dirname(os.path.dirname(os.getcwd()))+"\\data_\\2R2C_model\\"
+else:
+    PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.path.dirname(os.getcwd()))+"/data_/signal_dataset/"
+    PATH_TO_OUTPUT_DIR_DATA=os.path.dirname(os.path.dirname(os.getcwd()))+"/data_/2R2C_model/"
 directory = os.fsencode(PATH_TO_INPUT_DIR_DATA)
+
 df_res=pd.DataFrame()
 for file in os.listdir(directory):
     print(file)
@@ -45,7 +53,7 @@ for file in os.listdir(directory):
                                     xdata=inputs,
                                     ydata=output,
                                     p0=(0.01, 0.01, 1e6, 1e7),
-                                    bounds=[[0,0,0,0],[np.inf,np.inf,np.inf,np.inf]])
+                                    bounds=[[0,0,0,0],[1,1,np.inf,np.inf]])
             ri, r0, ci, ce = p_opt[0], p_opt[1], p_opt[2], p_opt[3]
             riList.append(ri)
             roList.append(r0)
@@ -53,13 +61,14 @@ for file in os.listdir(directory):
             ceList.append(ce)
         except:
             pass
-    df_temp['home_id']=home_id
-    df_temp['ri']=mean(riList)
-    df_temp['ro'] = mean(roList)
-    df_temp['ci'] = mean(ciList)
-    df_temp['ce'] = mean(ceList)
+
+    df_temp['home_id']=np.array([home_id])
+    df_temp['ri']=np.array([mean(riList)])
+    df_temp['ro'] = np.array([mean(roList)])
+    df_temp['ci'] = np.array([mean(ciList)])
+    df_temp['ce'] = np.array([mean(ceList)])
     df_res=pd.concat((df_res,df_temp))
-df_res.to_csv(PATH_TO_OUTPUT_DIR_DATA+'2R2C_mode.csv')
+df_res.to_csv(PATH_TO_OUTPUT_DIR_DATA+'2R2C_model.csv',sep=";",index=False)
 
 
 
