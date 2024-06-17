@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240617">
-      <change afterPath="$PROJECT_DIR$/Time serie/time_serie_analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/UA3412.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UA3412.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/CNN/CNN_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CNN/CNN_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Time serie/time_serie_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Time serie/time_serie_analysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1718613550673</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="20240617">
+      <created>1718614546335</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718614546335</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
