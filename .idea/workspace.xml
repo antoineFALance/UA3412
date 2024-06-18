@@ -5,8 +5,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240617">
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home106.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home128.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home136.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home140.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home145.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home162.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home171.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home225.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home228.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home242.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home249.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home255.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home266.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home276.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home311.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home328.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home61.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home62.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home63.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home65.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home73.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_/old_dataset/home90.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dataset_scripts/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dataset_scripts/final_dataSet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset_scripts/final_dataSet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/CNN/CNN_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CNN/CNN_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Time serie/time_serie_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Time serie/time_serie_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home106_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home106_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home128_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home128_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home136_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home136_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home140_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home140_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home145_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home145_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home162_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home162_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home171_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home171_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home225_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home225_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home228_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home228_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home242_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home242_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home249_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home249_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home255_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home255_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/2R2C_model/home266_result_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/data_/2R2C_model/home266_result_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home106.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home106.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home128.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home128.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home136.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home136.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home140.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home140.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home145.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home145.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home162.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home162.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home171.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home171.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home225.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home225.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home228.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home228.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home242.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home242.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home249.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home249.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home255.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home255.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home266.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home266.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home276.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home276.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home311.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home311.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home328.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home328.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home61.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home61.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home62.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home62.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home63.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home63.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home65.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home65.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home73.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home73.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/main_dataset/weather_home90.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/main_dataset/weather_home90.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +98,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -45,8 +107,8 @@
       <recent name="$PROJECT_DIR$/Dataset" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.verification_plots">
-    <configuration name="physical_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.CNN_model">
+    <configuration name="CNN_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -54,11 +116,74 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/CNN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\a.lance\PycharmProjects\UA3412_\Models\2R2C\physical_model.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/CNN/CNN_model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="final_dataSet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="UA3412" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Dataset_scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dataset_scripts/final_dataSet.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_12" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="UA3412" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_12.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="time_serie_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="UA3412" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Time serie" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Time serie/time_serie_analysis.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -90,8 +215,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.CNN_model" />
+        <item itemvalue="Python.final_dataSet" />
+        <item itemvalue="Python.time_serie_analysis" />
+        <item itemvalue="Python.scratch_12" />
         <item itemvalue="Python.verification_plots" />
-        <item itemvalue="Python.physical_model" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1718614546335</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="20240617">
+      <created>1718615305755</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718615305755</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,13 +337,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Dataset_scripts/final_dataSet.py</url>
-          <line>14</line>
+          <line>46</line>
           <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Dataset_scripts/final_dataSet.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/2R2C/physical_model.py</url>
@@ -219,6 +349,36 @@
           <url>file://$PROJECT_DIR$/Dataset_scripts/correlation_identification.py</url>
           <line>68</line>
           <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$APPLICATION_CONFIG_DIR$/scratches/scratch_12.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Dataset_scripts/final_dataSet.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/CNN/CNN_model.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/CNN/CNN_model.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/CNN/CNN_model.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/CNN/CNN_model.py</url>
+          <line>51</line>
+          <option name="timeStamp" value="117" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
