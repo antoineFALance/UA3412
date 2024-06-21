@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240618-CNN model">
+    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240618-CNN model+test">
+      <change afterPath="$PROJECT_DIR$/Models/DNN/DNN_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/XGBoost/xgboost_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features_engineering/features_engineering.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/CNN/CNN_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CNN/CNN_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Time serie/time_serie_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Time serie/time_serie_analysis.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +51,7 @@
       <recent name="$PROJECT_DIR$/Dataset" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.CNN_model">
+  <component name="RunManager" selected="Python.xgboost_model">
     <configuration name="CNN_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -61,6 +65,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/CNN/CNN_model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="features_engineering" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="UA3412" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/features_engineering" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/features_engineering/features_engineering.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -90,27 +115,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch_12" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="UA3412" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_12.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="time_serie_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -132,7 +136,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="verification_plots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="xgboost_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -140,11 +144,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/2R2C" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/XGBoost" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/2R2C/verification_plots.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/XGBoost/xgboost_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -155,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.xgboost_model" />
+        <item itemvalue="Python.features_engineering" />
+        <item itemvalue="Python.time_serie_analysis" />
         <item itemvalue="Python.CNN_model" />
         <item itemvalue="Python.final_dataSet" />
-        <item itemvalue="Python.time_serie_analysis" />
-        <item itemvalue="Python.scratch_12" />
-        <item itemvalue="Python.verification_plots" />
       </list>
     </recent_temporary>
   </component>
@@ -238,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1718714719457</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="20240618-CNN model+test">
+      <created>1718717117124</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718717117124</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,7 +269,8 @@
     <MESSAGE value="identification par correlation des signaux de montée en température 20240608" />
     <MESSAGE value="20240617" />
     <MESSAGE value="20240618-CNN model" />
-    <option name="LAST_COMMIT_MESSAGE" value="20240618-CNN model" />
+    <MESSAGE value="20240618-CNN model+test" />
+    <option name="LAST_COMMIT_MESSAGE" value="20240618-CNN model+test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -310,8 +322,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/CNN/CNN_model.py</url>
-          <line>96</line>
+          <line>115</line>
           <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Time serie/time_serie_analysis.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/features_engineering/features_engineering.py</url>
+          <line>56</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/XGBoost/xgboost_model.py</url>
+          <line>117</line>
+          <option name="timeStamp" value="172" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

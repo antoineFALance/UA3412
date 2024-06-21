@@ -9,7 +9,7 @@ from sklearn import preprocessing
 from matplotlib import pyplot as plt
 
 
-def windowing(dataset,windowRange=3):
+def windowing(dataset,windowRange=2):
     indexRange=list(dataset.index)
     valid_index_range=[]
     discontinuousIndex =[a+1!=b for a, b in zip(indexRange, indexRange[1:])]
@@ -29,9 +29,11 @@ def windowing(dataset,windowRange=3):
 if is_windows:
     PATH_TO_INPUTS_DIR=os.path.dirname(os.path.dirname(os.getcwd()))+"\\data_\\main_dataset\\"
     PATH_TO_OUTPUT_MODEL=os.path.dirname(os.path.dirname(os.getcwd()))+"\\Models\\CNN\\models\\"
+    PATH_TO_OUTPUT_RESULTS = os.path.dirname(os.path.dirname(os.getcwd()))+"\\Models\\CNN\\results\\"
 else:
     PATH_TO_INPUTS_DIR = os.path.dirname(os.path.dirname(os.getcwd())) + "/data_/main_dataset/"
     PATH_TO_OUTPUT_MODEL = os.path.dirname(os.path.dirname(os.getcwd())) + "/Models/CNN/models/"
+    PATH_TO_OUTPUT_RESULTS = os.path.dirname(os.path.dirname(os.getcwd())) + "/Models/CNN/results/"
 
 for file in os.listdir(PATH_TO_INPUTS_DIR):
     filename = os.fsdecode(file)
@@ -39,11 +41,23 @@ for file in os.listdir(PATH_TO_INPUTS_DIR):
     home_id = re.search('weather_(.*).csv', filename).group(1)
     df_dataset=pd.read_csv(fullFileName,sep=";")
     df_dataset['gas_value'].fillna(df_dataset['gas_value'].min(),inplace=True)
-    features_col=['hum_value','central_heat_flow_value',
-                  'central_heat_return_value','gas_value',
-                  'radiator_input_value','radiator_output_value',
-                  'Day sin','Day cos','Year sin','Year cos',
-                  'Text','dewPt','rh','pressure','wind_x','wind_y','Tint']
+    features_col=['hum_value',
+                  # 'central_heat_flow_value',
+                  # 'central_heat_return_value',
+                  'gas_value',
+                  # 'radiator_input_value',
+                  # 'radiator_output_value',
+                  # 'Day sin',
+                  # 'Day cos',
+                  # 'Year sin',
+                  # 'Year cos',
+                  'Text',
+                  # 'dewPt',
+                  # 'rh',
+                  'pressure',
+                  'wind_x',
+                  # 'wind_y',
+                  'Tint']
     dataset=df_dataset[features_col]
     mask = [not state for state in pd.isnull(dataset).any(axis=1).to_list()]
     dataset_masked = dataset[mask]
@@ -91,7 +105,12 @@ for file in os.listdir(PATH_TO_INPUTS_DIR):
 
     ax1 = df_results.pred.plot(color='blue', grid=True)
     ax2 = df_results.label.plot(color='red', grid=True)
-    plt.show()
+    # plt.show()
+
+    fig = ax2.get_figure()
+    result_png_name = PATH_TO_OUTPUT_RESULTS + home_id + "_result_plot.png"
+    fig.savefig(result_png_name)
+    plt.close()
 
 
     print('ok')
