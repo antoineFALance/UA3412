@@ -32,8 +32,8 @@ def windowing(dataset,windowRange):
             for step in range(continuousArr.shape[0]-windowRange):
                 ds=continuousArr[0+step:windowRange+step,:]
                 test = np.hstack([ds[:-1,:-1].flatten(),ds[-2,-1]])
-                # x_ds.append(np.hstack([ds[:-1,:-1].flatten(),ds[-2,-1]]))
-                x_ds.append(ds[:-1, :-1].flatten())
+                x_ds.append(np.hstack([ds[:-1,:-1].flatten(),ds[-2,-1]]))
+                # x_ds.append(ds[:-1, :-1].flatten())
                 y_ds.append(ds[-1,-1])
     x=np.stack(x_ds)
     y=np.stack(y_ds).reshape(-1, 1)
@@ -118,7 +118,7 @@ for file in fileList:
             df_temp['model_name']=MODEL_NAME
             best_xgb.save_model(PATH_TO_OUTPUT_MODEL+MODEL_NAME+"_xgboost.json")
             test = [feat + "_" + str(j) for j in range(window_range - 1, 0, -1) for feat in features_combination[:-1]]+['Tint']
-            best_xgb.get_booster().feature_names =[feat + "_" + str(j) for j in range(window_range - 1, 0, -1) for feat in features_combination[:-1]]
+            best_xgb.get_booster().feature_names =[feat + "_" + str(j) for j in range(window_range - 1, 0, -1) for feat in features_combination[:-1]]+['Tint']
             y_pred = best_xgb.predict(X_test)
 
             # MSE
