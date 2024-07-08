@@ -6,7 +6,9 @@ import numpy as np
 from math import sqrt
 from itertools import chain
 import sys
+from sklearn.metrics import mean_squared_error
 is_windows = hasattr(sys, 'getwindowsversion')
+import random
 
 def simpleRC(T_o_t_1,T_i_t_1,phi_h_t_1, Ri, Ro, Ci):
     ti = T_i_t_1+1/Ci*(1/(Ri+Ro)*(T_o_t_1-T_i_t_1)+phi_h_t_1)
@@ -36,13 +38,11 @@ def windowing(dataset,windowRange):
 
 if is_windows:
     PATH_TO_INPUTS_DIR=os.path.dirname(os.path.dirname(os.getcwd()))+"\\data_\\main_dataset\\"
-    PATH_TO_OUTPUT_MODEL=os.path.dirname(os.path.dirname(os.getcwd()))+"\\Models\\XGBoost\\models\\"
-    PATH_TO_OUTPUT_RESULTS = os.path.dirname(os.path.dirname(os.getcwd()))+"\\Models\\XGBoost\\results\\"
+    PATH_TO_OUTPUT_RESULTS = os.path.dirname(os.path.dirname(os.getcwd()))+"\\Models\\2R2C\\results\\"
     PATH_TO_MODEL_PARAMETER = os.path.dirname(os.path.dirname(os.getcwd())) + "\\data_\\2R2C_model\\2R2C_model.csv"
 else:
     PATH_TO_INPUTS_DIR = os.path.dirname(os.path.dirname(os.getcwd())) + "/data_/main_dataset/"
-    PATH_TO_OUTPUT_MODEL = os.path.dirname(os.path.dirname(os.getcwd())) + "/Models/XGBoost/models/"
-    PATH_TO_OUTPUT_RESULTS = os.path.dirname(os.path.dirname(os.getcwd())) + "/Models/XGBoost/results/"
+    PATH_TO_OUTPUT_RESULTS = os.path.dirname(os.path.dirname(os.getcwd())) + "/Models/2R2C/results/"
     PATH_TO_MODEL_PARAMETER = os.path.dirname(os.path.dirname(os.getcwd())) + "/data_/2R2C_model/2R2C_model.csv"
 
 df_results=pd.DataFrame()
@@ -53,6 +53,8 @@ df_error=pd.DataFrame()
 parameters=pd.read_csv(PATH_TO_MODEL_PARAMETER,sep=";")
 mseList,rmseList,home_id_list=[],[],[]
 
+df_model_results=pd.DataFrame()
+mse_list=[]
 for file in os.listdir(directory):
     print(file)
     filename = os.fsdecode(file)
@@ -70,39 +72,46 @@ for file in os.listdir(directory):
     df_dataset['gas_value'].fillna(df_dataset['gas_value'].min(), inplace=True)
     x, y = windowing(df_dataset[['gas_value','Text','Tint']], windowRange=2)
     dataset = pd.DataFrame(x,columns=['gas_value_1','Text_1','Tint_1'])
-    dataset['Tint']=y
-    dataset['Tint_pred']=dataset.apply(lambda x:simpleRC(x.Text_1,x.Tint_1,x.gas_value_1,ri,ro,ci),axis=1)
-    print('ok')
+    dataset['Text_1'].interpolate(inplace=True)
+    ti_list,t_env_list=[],[]
+    for index,row in dataset.iterrows():
+        if index==0:
+            T_env_1=(ri*row['Text_1']+ro*row['Tint_1'])/(ri+ro)
+            t_env_list.append(T_env_1)
+            ti=row['Tint_1']+1/ci*((T_env_1-row['Tint_1'])/ri+row['gas_value_1'])
+            ti_list.append(ti)
+        else:
+            T_env_1=t_env_list[-1]+1/ce*((row['Tint_1']-t_env_list[-1])/ri+(row['Text_1']-t_env_list[-1])/ro)
+            t_env_list.append(T_env_1)
+            ti=row['Tint_1']+1/ci*((T_env_1-row['Tint_1'])/ri+row['gas_value_1'])
+            ti_list.append(ti)
+    dataset['ti_pred']=np.array(ti_list)
+    dataset['ti_reel']=y
+    dataset['t_env']=np.array(t_env_list)
+    dataset['t']=dataset.index
+    mse=mean_squared_error(y_true=y,y_pred=ti_list)
+    mse_list.append(mse)
+    index=random.randint(0,len(mse_list))
 
-
-
-
-
-
-    resultList=[]
-    for section in dataTocheck['num'].unique():
-        mask=dataTocheck['num']==section
-        dataTocheckMasked=dataTocheck[mask]
-        inputs = dataTocheckMasked[['time', 'Text', 'gas']].to_numpy()
-        output = dataTocheckMasked['Tint'].to_numpy()
-        ti_results=list(simpleRC(inputs=inputs,output=output,Ri=ri,Ro=ro,Ce=ce,Ci=ci))
-        resultList.append(ti_results)
-    dataTocheck['result_model']=np.array(chain.from_iterable(resultList))
-    dataTocheck['x_plot']=np.array(range(dataTocheck.shape[0]))
-    dataTocheck['MSE']=dataTocheck.apply(lambda x:(x['Tint']-x['result_model'])**2,axis=1)
-    mseList.append(dataTocheck['MSE'].mean())
-    rmseList.append(sqrt(dataTocheck['MSE'].mean()))
-    ax1 = dataTocheck.plot(x='x_plot',y=['Tint'],color='r')
-    ax2 = dataTocheck.plot(x='x_plot',y=['result_model'],ax=ax1,color='green')
-    fig = ax2.get_figure()
-    result_png_name = PATH_TO_OUTPUT_DIR_DATA + home_id + "_result_model.png"
-    fig.savefig(result_png_name)
+    ax=dataset.iloc[index:index+300].plot(x='t',y='ti_pred')
+    ax = dataset.iloc[index:index+300].plot(x='t', y='ti_reel',ax=ax)
+    # plt.show()
+    fig = ax.get_figure()
+    FILENAME = home_id+"_"+"2R2C"
+    fig.savefig(PATH_TO_OUTPUT_RESULTS + FILENAME + "_result_plot.png")
     plt.close()
-    print(home_id)
-df_error['home_id'] = np.array(home_id_list)
-df_error['mse']=np.array(mseList)
-df_error['rmse']=np.array(rmseList)
-df_error.to_csv(PATH_TO_OUTPUT_DIR_DATA+'error_rate.csv',sep=";",index=False)
+
+df_model_results['home_id']=np.array(home_id_list)
+df_model_results['mse']=np.array(mse_list)
+df_model_results.to_csv(PATH_TO_OUTPUT_RESULTS+"2R2C_mse.csv",sep=";")
+print('ok')
+
+
+
+
+
+
+
 
 
 
