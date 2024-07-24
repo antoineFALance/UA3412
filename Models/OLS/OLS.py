@@ -70,6 +70,12 @@ for file in os.listdir(directory):
     df_dataset['ti_1']=df_dataset['Tint'].shift(1)
     df_dataset['ti_2'] = df_dataset['Tint'].shift(2)
     df_dataset['ti_3'] = df_dataset['Tint'].shift(3)
+
+    df_dataset['te_1'] = df_dataset['Text'].shift(1)
+    df_dataset['te_2'] = df_dataset['Text'].shift(2)
+    df_dataset['te_3'] = df_dataset['Text'].shift(3)
+    df_dataset['te_4'] = df_dataset['Text'].shift(4)
+
     df_dataset['gas_value_1'] = df_dataset['gas_value'].shift(1)
     df_dataset['gas_value_2'] = df_dataset['gas_value'].shift(2)
     df_dataset['gas_value_3'] = df_dataset['gas_value'].shift(3)
@@ -77,9 +83,10 @@ for file in os.listdir(directory):
     df_dataset['pressure_4'] = df_dataset['pressure'].shift(4)
 
     df_ols = df_dataset[['Tint',
-                         'ti_1',
-                         'ti_2',
-                         'ti_3',
+                         'te_1',
+                         'te_2',
+                         'te_3',
+                         'te_4',
                          'gas_value_1',
                          'gas_value_2',
                          'gas_value_3',
@@ -89,7 +96,7 @@ for file in os.listdir(directory):
     params={}
 
     # df_ols = (df_ols-df_ols.mean())/(df_ols.std())
-    x_train,x_test,y_train,y_test=train_test_split(df_ols[['ti_1','ti_2','ti_3','gas_value_1','gas_value_2','gas_value_3','gas_value_4','pressure_4']].to_numpy(),df_ols[['Tint']].to_numpy().flatten(),test_size=0.2,random_state=123)
+    x_train,x_test,y_train,y_test=train_test_split(df_ols[['te_1','te_2','te_3','te_4','gas_value_1','gas_value_2','gas_value_3','gas_value_4','pressure_4']].to_numpy(),df_ols[['Tint']].to_numpy().flatten(),test_size=0.2,random_state=123)
     ols=LinearRegression()
     scores = cross_validate(ols,x_train,y_train,cv=5,scoring='neg_mean_squared_error',return_estimator=True)
     df_temp['home_id']=np.array([home_id])
@@ -110,7 +117,9 @@ for file in os.listdir(directory):
     save_figure(ax=ax, filename=home_id + "_" + "OLS_residuels", directory=PATH_TO_OUTPUT_DIR_DATA)
     plt.close()
     ax1=plt.plot(y_test,y_pred,c='black',marker='x',linestyle="")
-    plt.title("predictions / valeurs reel")
+    plt.plot(range(14,30),range(14,30),c="green")
+    plt.show()
+    plt.title(home_id+" predictions / valeurs reel")
     plt.xlabel("y_pred")
     plt.ylabel("y_reel")
     save_figure(ax=ax1, filename=home_id + "_" + "OLS_pred_reel",directory=PATH_TO_OUTPUT_DIR_DATA)
