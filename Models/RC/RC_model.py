@@ -46,64 +46,75 @@ def simpleRC(x,R,C):
     delta_Te=x[:, 4][0]
     gamma = R*C
 
-    ti = -R*delta_phi*math.exp(-)
+    # ti = -R*delta_phi*math.exp(-)
     return ti
 
 # PATH DEFINITION
 if is_windows:
-    PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.path.dirname(os.getcwd()))+"\\data_\\dataset_gas_value_corrected\\"
+    PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.path.dirname(os.getcwd()))+"\\data_\\main_dataset\\"
     PATH_TO_OUTPUT_DIR_DATA=os.path.dirname(os.path.dirname(os.getcwd()))+"\\Models\\RC\\results\\"
 else:
     PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.path.dirname(os.getcwd()))+"/data_/dataset_gas_value_corrected/"
     PATH_TO_OUTPUT_DIR_DATA=os.path.dirname(os.path.dirname(os.getcwd()))+"/Models/RC/results/"
 directory = os.fsencode(PATH_TO_INPUT_DIR_DATA)
 
-df_res=pd.DataFrame()
-for file in os.listdir(directory):
-    print(file)
-    filename = os.fsdecode(file)
-    home_id = re.search('(.*)_dataset.csv', filename).group(1)
-    fullFileName=PATH_TO_INPUT_DIR_DATA+filename
-    df_temp=pd.DataFrame()
-    RList, CList = [], []
-    Ri_List,R0_List,Ci_List,Ce_List=[],[],[],[]
-    df_dataset = pd.read_csv(fullFileName, sep=";")
-    df_dataset['ti_1']=df_dataset['Tint'].shift(1)
-    df_dataset['te_1'] = df_dataset['Text'].shift(1)
-    df_dataset['deltaPhi'] = df_dataset['gas_value']-df_dataset['gas_value'].shift(1)
-    df_dataset['deltaTe'] = df_dataset['Text'] - df_dataset['Text'].shift(1)
-    df_dataset['gas_value_1'] = df_dataset['gas_value'].shift(1)
+# df_res=pd.DataFrame()
+# for file in os.listdir(directory):
+#     print(file)
 
-    x=df_dataset[['ti_1','te_1','gas_value_1','deltaPhi','deltaTe']].dropna().to_numpy()
-    y = df_dataset[['Tint']].dropna().to_numpy()[1:].flatten()
+filename ="weather_home106.csv"
 
-    for idx in range(x.shape[0]):
-        x_test=x[[idx],:]
-        y_test=y[idx]
-        p_opt, p_cov = so.curve_fit(f=simpleRC,
-                            xdata=x[[idx],:],
-                            ydata=y[idx],
-                            p0=(1.0, 1.0),
-                            bounds=[[0.5,1],[1.5,3]]
-                                )
+home_id = re.search('weather_(.*).csv', filename).group(1)
+fullFileName=PATH_TO_INPUT_DIR_DATA+filename
+df_temp=pd.DataFrame()
+RList, CList = [], []
+Ri_List,R0_List,Ci_List,Ce_List=[],[],[],[]
+df_dataset = pd.read_csv(fullFileName, sep=";")
+df_dataset['yearmonth']=df_dataset['year']*100+df_dataset['month']
+# FILTRE SUR MOIS HIVER
+df_dataset=df_dataset[(df_dataset['yearmonth'] ==201711) | (df_dataset['yearmonth'] ==201712) | (df_dataset['yearmonth'] ==201801)| (df_dataset['yearmonth'] ==201802)]
+df_dataset.fillna(method='ffill', inplace=True)
+df_dataset.dropna(inplace=True)
+
+plt.plot(df_dataset['Tint'].to_list())
+plt.show()
+
+df_dataset['ti_1']=df_dataset['Tint'].shift(1)
+df_dataset['te_1'] = df_dataset['Text'].shift(1)
+df_dataset['deltaPhi'] = df_dataset['gas_value']-df_dataset['gas_value'].shift(1)
+df_dataset['deltaTe'] = df_dataset['Text'] - df_dataset['Text'].shift(1)
+df_dataset['gas_value_1'] = df_dataset['gas_value'].shift(1)
+
+x=df_dataset[['ti_1','te_1','gas_value_1','deltaPhi','deltaTe']].dropna().to_numpy()
+y = df_dataset[['Tint']].dropna().to_numpy()[1:].flatten()
+
+for idx in range(x.shape[0]):
+    x_test=x[[idx],:]
+    y_test=y[idx]
+    p_opt, p_cov = so.curve_fit(f=simpleRC,
+                        xdata=x[[idx],:],
+                        ydata=y[idx],
+                        p0=(1.0, 1.0),
+                        bounds=[[0.5,1],[1.5,3]]
+                            )
 
 
-        R, C = p_opt[0], p_opt[1]
-        RList.append(R)
-        CList.append(C)
+    R, C = p_opt[0], p_opt[1]
+    RList.append(R)
+    CList.append(C)
 
 
-    R_mean=mean(RList)
-    C_mean=mean(CList)
-    R_std = stdev(RList)
-    C_std=stdev(CList)
+R_mean=mean(RList)
+C_mean=mean(CList)
+R_std = stdev(RList)
+C_std=stdev(CList)
 
-    df_temp['home_id']=np.array([home_id])
-    df_temp['Rmean']=np.array(R_mean)
-    df_temp['Cmean'] = np.array(C_mean)
-    df_temp['Rstd'] = np.array(R_std)
-    df_temp['Cstd'] = np.array(C_std)
-    df_res=pd.concat((df_res,df_temp))
+df_temp['home_id']=np.array([home_id])
+df_temp['Rmean']=np.array(R_mean)
+df_temp['Cmean'] = np.array(C_mean)
+df_temp['Rstd'] = np.array(R_std)
+df_temp['Cstd'] = np.array(C_std)
+df_res=pd.concat((df_res,df_temp))
 
 df_res.to_csv(PATH_TO_OUTPUT_DIR_DATA+'RC_model.csv',sep=";",index=False)
 
