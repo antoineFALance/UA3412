@@ -22,7 +22,7 @@ for index in range(df.shape[0]):
     next_state, reward, done, _,__ = env.step(action)
     state=next_state
     TiList.append(next_state[0])
-index=500
+index=50
 figure,axs =plt.subplots(3)
 axs[0].plot(actionList[:index])
 axs[1].plot(TiList[:index])

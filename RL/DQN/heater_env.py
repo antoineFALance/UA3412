@@ -48,7 +48,7 @@ class heaterEnvRC(gym.Env[np.ndarray, Union[int, np.ndarray]]):
 
         if not terminated:
             # reward=1.0-0.8*gas_value/200-0.8*abs((Tint1-self.data['consigne'].to_list()[self.t]))
-            reward=1-0.8*abs((Tint1-self.data['consigne'].to_list()[self.t]))
+            reward=1-0.8*abs((Tint1-self.data['consigne'].to_list()[self.t]))-0.8*action/10
             self.t += 1
             self.previousTint.append(Tint1)
             self.continuousRewardserie+=1
