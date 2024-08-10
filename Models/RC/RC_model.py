@@ -9,114 +9,138 @@ from statistics import mean,stdev
 import sys
 is_windows = hasattr(sys, 'getwindowsversion')
 import scipy.stats as stats
+from tqdm import tqdm
+from functools import reduce
 
-def windowing(dataset,windowRange):
-    x_list,y_list=[],[]
-
-    for day in dataset['cd_yearMonthDay'].unique().tolist():
-        df_day = dataset[dataset['cd_yearMonthDay']==day]
-        if not df_day.isnull().any().any() :
-            df_day['t']=np.array(range(df_day.shape[0]))
-            # ax=df_day.plot(x='t',y='Tint')
-            # df_day.plot(x='t', y='Text',ax=ax)
-            x_list.append(df_day[['gas_value','Text','Tint']].to_numpy())
-            y_list.append(df_day[['Tint']].to_numpy())
-        else:
-            pass
-    return x_list,y_list
+PATH_TO_LIVING_TINT_FILE='C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_livingroom1087_sensor4902_room_temperature.csv'
+PATH_TO_BEDROOM_TINT_FILE='C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_bedroom1088_sensor4908_room_temperature.csv'
+PATH_TO_HALL_TINT_FILE='C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_hall1086_sensor4898_room_temperature.csv'
+PATH_TO_KITCHEN_TINT_FILE='C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_hall1086_sensor4898_room_temperature.csv'
+PATH_TO_GAS_PULSE_FILE='C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_kitchen1085_sensor4884_gas-pulse_gas.csv'
+PATH_TO_WEATHER_FILE='C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\data_\\weather_forecast\\transformed_weather_dataset.csv'
 
 
-    x=np.stack(x_ds)
-    y=np.stack(y_ds).reshape(-1, 1)
-    wdw=10
-    x_,y_=[],[]
-    for step in range(x.shape[0] - wdw):
-        x_chunk = x[step:step+wdw,:]
-        y_chunk = y[step:step+wdw,:]
-        x_.append(x_chunk)
-        y_.append(y_chunk)
+# FUNCTION
+def Ti_function(input,R,C):
+    t=list(input[:,0])
+    gas_value=list(input[:,1])
+    Text = list(input[ :,2])
+    T0=input[0,3]
+    Ti=[R*gas_value[i]*(1-math.exp(-t[i]/(R*C)))+Text[i]*(1-math.exp(-t[i]/(R*C)))+T0*math.exp(-t[i]/(R*C)) for i in range(len(t))]
+    return np.array(Ti)
 
-    return np.array(x_),np.array(y_)
+df_gas_pulse = pd.read_csv(PATH_TO_GAS_PULSE_FILE,sep=";",header=None)
 
-def simpleRC(x,R,C):
-    ti_1=x[:,0][0]
-    te_1=x[:,1][0]
-    gas_value_1 = x[:, 2][0]
-    delta_phi=x[:, 3][0]
-    delta_Te=x[:, 4][0]
-    gamma = R*C
+df_Text=pd.read_csv(PATH_TO_WEATHER_FILE,sep=";")
+df_gas_pulse.columns=['time_stamp','value']
 
-    # ti = -R*delta_phi*math.exp(-)
-    return ti
+df_gas_pulse['time_stamp']=pd.to_datetime(df_gas_pulse['time_stamp'])
+df_gas_pulse['dateHour']=df_gas_pulse['time_stamp'].dt.floor('H')
 
-# PATH DEFINITION
-if is_windows:
-    PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.path.dirname(os.getcwd()))+"\\data_\\main_dataset\\"
-    PATH_TO_OUTPUT_DIR_DATA=os.path.dirname(os.path.dirname(os.getcwd()))+"\\Models\\RC\\results\\"
-else:
-    PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.path.dirname(os.getcwd()))+"/data_/dataset_gas_value_corrected/"
-    PATH_TO_OUTPUT_DIR_DATA=os.path.dirname(os.path.dirname(os.getcwd()))+"/Models/RC/results/"
-directory = os.fsencode(PATH_TO_INPUT_DIR_DATA)
+# CREATION DES DONNEES CHRONO POUR JOINTURE
+df_gas_pulse['year']=df_gas_pulse['time_stamp'].dt.year
+df_gas_pulse['month']=df_gas_pulse['time_stamp'].dt.month
+df_gas_pulse['day']=df_gas_pulse['time_stamp'].dt.day
+df_gas_pulse['hour']=df_gas_pulse['time_stamp'].dt.hour
+df_gas_pulse['min']=df_gas_pulse['time_stamp'].dt.minute
+df_gas_pulse_min=df_gas_pulse[['year','month','day','hour','min','value']].groupby(by=['year','month','day','hour','min'],as_index=False).sum()
 
-# df_res=pd.DataFrame()
-# for file in os.listdir(directory):
-#     print(file)
+# LIVING ROOM
+df_Tint_living = pd.read_csv(PATH_TO_LIVING_TINT_FILE,sep=";",header=None)
+df_Tint_living.columns=['time_stamp','Tint_living']
+df_Tint_living['time_stamp']=pd.to_datetime(df_Tint_living['time_stamp'])
+df_Tint_living['year']=df_Tint_living['time_stamp'].dt.year
+df_Tint_living['month']=df_Tint_living['time_stamp'].dt.month
+df_Tint_living['day']=df_Tint_living['time_stamp'].dt.day
+df_Tint_living['hour']=df_Tint_living['time_stamp'].dt.hour
+df_Tint_living['min']=df_Tint_living['time_stamp'].dt.minute
+df_Tint_living_min=df_Tint_living[['year','month','day','hour','min','Tint_living']].groupby(by=['year','month','day','hour','min'],as_index=False).mean()
 
-filename ="weather_home106.csv"
+# BEDROOM
+df_Tint_bed = pd.read_csv(PATH_TO_BEDROOM_TINT_FILE,sep=";",header=None)
+df_Tint_bed.columns=['time_stamp','Tint_bedroom']
+df_Tint_bed['time_stamp']=pd.to_datetime(df_Tint_bed['time_stamp'])
+df_Tint_bed['year']=df_Tint_bed['time_stamp'].dt.year
+df_Tint_bed['month']=df_Tint_bed['time_stamp'].dt.month
+df_Tint_bed['day']=df_Tint_bed['time_stamp'].dt.day
+df_Tint_bed['hour']=df_Tint_bed['time_stamp'].dt.hour
+df_Tint_bed['min']=df_Tint_bed['time_stamp'].dt.minute
+df_Tint_bed_min=df_Tint_bed[['year','month','day','hour','min','Tint_bedroom']].groupby(by=['year','month','day','hour','min'],as_index=False).mean()
 
-home_id = re.search('weather_(.*).csv', filename).group(1)
-fullFileName=PATH_TO_INPUT_DIR_DATA+filename
-df_temp=pd.DataFrame()
-RList, CList = [], []
-Ri_List,R0_List,Ci_List,Ce_List=[],[],[],[]
-df_dataset = pd.read_csv(fullFileName, sep=";")
-df_dataset['yearmonth']=df_dataset['year']*100+df_dataset['month']
-# FILTRE SUR MOIS HIVER
-df_dataset=df_dataset[(df_dataset['yearmonth'] ==201711) | (df_dataset['yearmonth'] ==201712) | (df_dataset['yearmonth'] ==201801)| (df_dataset['yearmonth'] ==201802)]
-df_dataset.fillna(method='ffill', inplace=True)
-df_dataset.dropna(inplace=True)
+# HALL
+df_Tint_hall = pd.read_csv(PATH_TO_HALL_TINT_FILE,sep=";",header=None)
+df_Tint_hall.columns=['time_stamp','Tint_hall']
+df_Tint_hall['time_stamp']=pd.to_datetime(df_Tint_hall['time_stamp'])
+df_Tint_hall['year']=df_Tint_hall['time_stamp'].dt.year
+df_Tint_hall['month']=df_Tint_hall['time_stamp'].dt.month
+df_Tint_hall['day']=df_Tint_hall['time_stamp'].dt.day
+df_Tint_hall['hour']=df_Tint_hall['time_stamp'].dt.hour
+df_Tint_hall['min']=df_Tint_hall['time_stamp'].dt.minute
+df_Tint_hall_min=df_Tint_hall[['year','month','day','hour','min','Tint_hall']].groupby(by=['year','month','day','hour','min'],as_index=False).mean()
 
-plt.plot(df_dataset['Tint'].to_list())
-plt.show()
+# KITCHEN
+df_Tint_kitchen= pd.read_csv(PATH_TO_KITCHEN_TINT_FILE,sep=";",header=None)
+df_Tint_kitchen.columns=['time_stamp','Tint_kitchen']
+df_Tint_kitchen['time_stamp']=pd.to_datetime(df_Tint_kitchen['time_stamp'])
+df_Tint_kitchen['year']=df_Tint_kitchen['time_stamp'].dt.year
+df_Tint_kitchen['month']=df_Tint_kitchen['time_stamp'].dt.month
+df_Tint_kitchen['day']=df_Tint_kitchen['time_stamp'].dt.day
+df_Tint_kitchen['hour']=df_Tint_kitchen['time_stamp'].dt.hour
+df_Tint_kitchen['min']=df_Tint_kitchen['time_stamp'].dt.minute
+df_Tint_kitchen_min=df_Tint_kitchen[['year','month','day','hour','min','Tint_kitchen']].groupby(by=['year','month','day','hour','min'],as_index=False).mean()
 
-df_dataset['ti_1']=df_dataset['Tint'].shift(1)
-df_dataset['te_1'] = df_dataset['Text'].shift(1)
-df_dataset['deltaPhi'] = df_dataset['gas_value']-df_dataset['gas_value'].shift(1)
-df_dataset['deltaTe'] = df_dataset['Text'] - df_dataset['Text'].shift(1)
-df_dataset['gas_value_1'] = df_dataset['gas_value'].shift(1)
+# AGGREGATION TINT
+dfs = [df_Tint_living_min, df_Tint_bed_min, df_Tint_hall_min,df_Tint_kitchen_min]
+df_Tint_min=reduce(lambda  left,right: pd.merge(left,right,on=['year','month','day','hour','min'],how='inner'), dfs)
+df_Tint_min['Tint']=df_Tint_min[['Tint_kitchen','Tint_hall','Tint_bedroom','Tint_living']].mean(axis=1)
 
-x=df_dataset[['ti_1','te_1','gas_value_1','deltaPhi','deltaTe']].dropna().to_numpy()
-y = df_dataset[['Tint']].dropna().to_numpy()[1:].flatten()
+#CREATION D'UNE PLAGE DE TEMPS
+df_main=pd.DataFrame()
+df_main['time_stamp']=pd.date_range(start =str(df_gas_pulse['dateHour'].min()),end =str(df_gas_pulse['dateHour'].max()), freq ='min')
+df_main['time_stamp']=df_main['time_stamp'].dt.floor('min')
+df_main['year']=df_main['time_stamp'].dt.year
+df_main['month']=df_main['time_stamp'].dt.month
+df_main['day']=df_main['time_stamp'].dt.day
+df_main['hour']=df_main['time_stamp'].dt.hour
+df_main['min']=df_main['time_stamp'].dt.minute
 
-for idx in range(x.shape[0]):
-    x_test=x[[idx],:]
-    y_test=y[idx]
-    p_opt, p_cov = so.curve_fit(f=simpleRC,
-                        xdata=x[[idx],:],
-                        ydata=y[idx],
-                        p0=(1.0, 1.0),
-                        bounds=[[0.5,1],[1.5,3]]
-                            )
+# JOINTURE
+df=df_main.merge(df_gas_pulse_min,on=['year','month','day','hour','min'],how='left')\
+    .merge(df_Tint_min[['year','month','day','hour','min','Tint']],on=['year','month','day','hour','min'],how='left')\
+    .merge(df_Text[['year','month','day','hour','Text']],on=['year','month','day','hour'],how='left')
 
+df.rename(columns={'value': 'gas_value'},inplace=True)
+df['gas_value']=df['gas_value']/10
+df['gas_value']=df['gas_value']-df['gas_value'].min()
+df['Tint']=df['Tint']/10
+df['Tint'].interpolate(inplace=True)
+df_1=df[['year','month','day','hour','min','Tint','Text']]
+df_1.dropna(inplace=True)
+df_1['t']=np.array(range(1,df_1.shape[0]+1))
+R,C,=1.5,800
+T0=df_1['Tint'].tolist()[0]
+TiList = df_1['Tint'].tolist()
+TeList = df_1['Text'].tolist()
+gas_value_corrected=[]
+for t in tqdm(range(df_1.shape[0])):
+    gamma=math.exp(-t/(R*C))
+    try:
+        Ti=TiList[t]
+        Te=TeList[t]
+        gas_value_corrected.append(max(0,Ti/(R*(1-gamma))-Te/R-gamma/(R*(1-gamma))*T0))
+    except:
+        gas_value_corrected.append(0)
 
-    R, C = p_opt[0], p_opt[1]
-    RList.append(R)
-    CList.append(C)
+df_1['gas_value_corrected']=np.array(gas_value_corrected)
 
-
-R_mean=mean(RList)
-C_mean=mean(CList)
-R_std = stdev(RList)
-C_std=stdev(CList)
-
-df_temp['home_id']=np.array([home_id])
-df_temp['Rmean']=np.array(R_mean)
-df_temp['Cmean'] = np.array(C_mean)
-df_temp['Rstd'] = np.array(R_std)
-df_temp['Cstd'] = np.array(C_std)
-df_res=pd.concat((df_res,df_temp))
-
-df_res.to_csv(PATH_TO_OUTPUT_DIR_DATA+'RC_model.csv',sep=";",index=False)
-
-
+# fig, axs = plt.subplots(3)
+# axs[0].plot(df_1['Text'].tolist(),c='blue')
+# axs[1].plot(df_1['Tint'].tolist(),c='orange')
+# ax1_twin=axs[1].twinx()
+# axs[1].plot(df_1['gas_value_corrected'].tolist(),c='green')
+# plt.show()
+#
+# df_1.to_csv('C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set.csv',sep=";",index=False)
+# df_1_hr=df_1.groupby(['year','month','day','hour'],as_index=False).agg({'Text':'mean','Tint':'mean','gas_value_corrected':'sum'})
+# df_1_hr.to_csv('C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set_HR.csv',sep=";",index=False)
 

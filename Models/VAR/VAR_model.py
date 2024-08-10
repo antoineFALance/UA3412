@@ -33,7 +33,7 @@ def window_range(data,wdw):
 
 # PATH DEFINITION
 if is_windows:
-    PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.path.dirname(os.getcwd()))+"\\data_\\dataset_gas_value_corrected\\"
+    PATH_TO_INPUT_DIR_DATA= "C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set_HR.csv"
     PATH_TO_INPUT_DIR_MODEL=os.path.dirname(os.path.dirname(os.getcwd()))+"\\Models\\VAR\\results\\"
     PATH_TO_OUTPUT_RESULT = os.path.dirname(os.path.dirname(os.getcwd()))+"\\Models\\VAR\\results\\"
 
@@ -42,82 +42,83 @@ else:
     PATH_TO_INPUT_DIR_MODEL=os.path.dirname(os.path.dirname(os.getcwd()))+"/Models/VAR/results/"
     PATH_TO_OUTPUT_RESULT = os.path.dirname(os.path.dirname(os.getcwd())) + "/Models/VAR/results/"
 
-directory = os.fsencode(PATH_TO_INPUT_DIR_DATA)
+
 with open(PATH_TO_OUTPUT_RESULT + 'results.csv', 'a') as f_object:
     writer_object = writer(f_object)
-    test = os.listdir(directory)
-    for file in os.listdir(directory):
-        diffFeg = 0
-        print(file)
-        filename = os.fsdecode(file)
-        home_id = re.search('(.*)_dataset.csv', filename).group(1)
-        fullFileName=PATH_TO_INPUT_DIR_DATA+filename
-        df_temp=pd.DataFrame()
-        df_dataset = pd.read_csv(fullFileName, sep=";")
-        df_dataset['datetime']=pd.to_datetime(df_dataset[['year', 'month', 'day', 'hour']])
-        df_dataset['yearmonth']=df_dataset['year']*100+df_dataset['month']
+    diffFeg = 0
+    home_id='home_106'
 
-        # FILTRE SUR MOIS HIVER
-        df_dataset=df_dataset[(df_dataset['yearmonth'] ==201711) | (df_dataset['yearmonth'] ==201712) | (df_dataset['yearmonth'] ==201801)| (df_dataset['yearmonth'] ==201802)]
+    df_temp=pd.DataFrame()
+    df_dataset = pd.read_csv(PATH_TO_INPUT_DIR_DATA, sep=";")
+    df_dataset['datetime']=pd.to_datetime(df_dataset[['year', 'month', 'day', 'hour']])
+    df_dataset['yearmonth']=df_dataset['year']*100+df_dataset['month']
+
+    # FILTRE SUR MOIS HIVER
+    # df_dataset=df_dataset[(df_dataset['yearmonth'] ==201711) | (df_dataset['yearmonth'] ==201712) | (df_dataset['yearmonth'] ==201801)| (df_dataset['yearmonth'] ==201802)]
 
 
-        df_dataset.index = pd.DatetimeIndex(df_dataset['datetime'])
-        VAR_data=df_dataset[['Tint','Text','gas_value']]
-        VAR_data.fillna(method='ffill',inplace=True)
-        VAR_data.dropna(inplace=True)
+    df_dataset.index = pd.DatetimeIndex(df_dataset['datetime'])
+    VAR_data=df_dataset[['Tint','Text','gas_value_corrected']]
+    VAR_data.fillna(method='ffill',inplace=True)
+    VAR_data.dropna(inplace=True)
 
 
-        # Johansen cross-integration test
-        try:
-            scaler = StandardScaler()
-            # VAR_data[VAR_data.columns] = scaler.fit_transform(VAR_data)
-            johansen_test = coint_johansen(VAR_data,-1,1).eig
+    # Johansen cross-integration test
+    # try:
+    scaler = StandardScaler()
+    VAR_data[VAR_data.columns] = scaler.fit_transform(VAR_data)
+    ad_Fuller_p_values=[adfuller(VAR_data[col]) for col in VAR_data.columns ]
 
-            if all([abs(result)<1 for result in list(johansen_test)]):
+    johansen_test = coint_johansen(VAR_data,-1,1).eig
 
-                # creating the train and validation set
-                train = VAR_data[:int(0.8 * (len(VAR_data)))]
-                valid = VAR_data[int(0.8 * (len(VAR_data))):].to_numpy()
+    if all([abs(p_values)<0.05 for p_values in ad_Fuller_p_values]):
 
-                # valid = VAR_data[int(0.8 * (len(VAR_data))):].to_csv('valid.csv')
+        # creating the train and validation set
+        train = VAR_data[:int(0.8 * (len(VAR_data)))]
+        valid = VAR_data[int(0.8 * (len(VAR_data))):].to_numpy()
 
-                # Construction du modèle
-                model = VAR(train)
-                optimal_lags = model.select_order()
-                lag_order = optimal_lags.selected_orders['bic']
-                lag_order=1
-                # print('home_id: '+str(home_id)+'-BIC: '+str(lag_order))
-                data_test = window_range(valid,lag_order)
-                results = model.fit(lag_order)
-                print(results.summary())
-                var_model = results.model
+        # valid = VAR_data[int(0.8 * (len(VAR_data))):].to_csv('valid.csv')
 
-                # Vérification du modèle
-                Tint_hat =[scaler.inverse_transform(results.forecast(x_test,1)).flatten()[0] for x_test in data_test]
-                Tint_reel = list(scaler.inverse_transform(valid)[1:,0])
-                mse = mean_squared_error(Tint_reel,Tint_hat)
-                rmse =math.sqrt(mse)
-                r2=r2_score(Tint_reel,Tint_hat)
-                writer_object.writerow([home_id, mse,rmse,r2])
-                fig, ax1 = plt.subplots()
-                ax1.plot(Tint_reel,Tint_hat,marker='x',linestyle="",c='black')
-                ax1.plot(range(int(min(Tint_reel)),int(max(Tint_reel))), range(int(min(Tint_reel)),int(max(Tint_reel))), c='green')
-                save_figure(ax=ax1, filename=home_id + "_regression_result.png", directory=PATH_TO_OUTPUT_RESULT)
-                plt.close()
+        # Construction du modèle
+        model = VAR(train)
+        optimal_lags = model.select_order()
+        lag_order = optimal_lags.selected_orders['bic']
+        lag_order=1
+        # print('home_id: '+str(home_id)+'-BIC: '+str(lag_order))
+        data_test = window_range(valid,lag_order)
+        results = model.fit(lag_order)
+        print(results.summary())
+        var_model = results.model
 
-                txt_filename = PATH_TO_OUTPUT_RESULT + home_id + '_' + str(diffFeg) + "_lag_Var_results.txt"
+        # Vérification du modèle
+        Tint_hat =[scaler.inverse_transform(results.forecast(x_test,1)).flatten()[0] for x_test in data_test]
+        Tint_reel = list(scaler.inverse_transform(valid)[1:,0])
+        mse = mean_squared_error(Tint_reel,Tint_hat)
+        rmse =math.sqrt(mse)
+        r2=r2_score(Tint_reel,Tint_hat)
+        writer_object.writerow([home_id, mse,rmse,r2])
+        fig, ax1 = plt.subplots()
+        ax1.plot(Tint_reel,Tint_hat,marker='x',linestyle="",c='black')
+        ax1.plot(range(int(min(Tint_reel)),int(max(Tint_reel))), range(int(min(Tint_reel)),int(max(Tint_reel))), c='green')
+        plt.xlabel("Tint prediction")
+        plt.ylabel("Tint true")
+        plt.show()
+        # save_figure(ax=ax1, filename=home_id + "_regression_result.png", directory=PATH_TO_OUTPUT_RESULT)
+        # plt.close()
 
-                with open(txt_filename, "w") as text_file:
-                    test = str(results.summary())
-                    text_file.write(str(results.summary()))
+        txt_filename = PATH_TO_OUTPUT_RESULT + home_id + '_' + str(diffFeg) + "_lag_Var_results.txt"
 
-            else :
-                mdata_diff = mdata_diff.diff().dropna()
-                diffFeg+=1
-        except:
-            pass
+        with open(txt_filename, "w") as text_file:
+            test = str(results.summary())
+            text_file.write(str(results.summary()))
 
-    f_object.close()
+    else :
+        mdata_diff = VAR_data.diff().dropna()
+        diffFeg+=1
+    # except:
+    #     pass
+
+f_object.close()
 
 
 

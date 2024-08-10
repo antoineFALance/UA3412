@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240724">
-      <change afterPath="$PROJECT_DIR$/PID/PID.py" afterDir="false" />
+    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240801">
+      <change afterPath="$PROJECT_DIR$/RL/DQN/DQN.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/DQN/Test_agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/DQN/heater_env.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/RC/RC_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RC/RC_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/RNN/RNN_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RNN/RNN_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/RC/RC_model_verification.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RC/RC_model_verification.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/VAR/VAR_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/VAR/VAR_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PID/PID.py" beforeDir="false" afterPath="$PROJECT_DIR$/PID/PID.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_/weather_forecast/transformed_weather_dataset.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_/weather_forecast/transformed_weather_dataset.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +31,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -42,7 +54,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RL_ex" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -50,7 +63,28 @@
       <recent name="$PROJECT_DIR$/Dataset" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.PID">
+  <component name="RunManager" selected="Python.Test_agent">
+    <configuration name="DQN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="UA3412" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RL/DQN" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RL/DQN/DQN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="PID" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -64,27 +98,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PID/PID.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="RC_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="UA3412" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/RC" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/RC/RC_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -114,7 +127,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="RNN_models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_agent" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,11 +135,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/RNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RL/DQN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/RNN/RNN_models.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RL/DQN/Test_agent.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,11 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.PID" />
-        <item itemvalue="Python.RC_model" />
-        <item itemvalue="Python.RC_model_verification" />
+        <item itemvalue="Python.Test_agent" />
+        <item itemvalue="Python.DQN" />
         <item itemvalue="Python.VAR_model" />
-        <item itemvalue="Python.RNN_models" />
+        <item itemvalue="Python.PID" />
+        <item itemvalue="Python.RC_model_verification" />
       </list>
     </recent_temporary>
   </component>
@@ -290,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721836079845</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="20240801">
+      <created>1722500113346</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1722500113346</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,7 +336,8 @@
     <MESSAGE value="20240708" />
     <MESSAGE value="20240719" />
     <MESSAGE value="20240724" />
-    <option name="LAST_COMMIT_MESSAGE" value="20240724" />
+    <MESSAGE value="20240801" />
+    <option name="LAST_COMMIT_MESSAGE" value="20240801" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -387,11 +408,6 @@
           <option name="timeStamp" value="188" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Models/RC/RC_model.py</url>
-          <line>118</line>
-          <option name="timeStamp" value="213" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/2R2C/physical_model.py</url>
           <line>64</line>
           <option name="timeStamp" value="291" />
@@ -410,16 +426,6 @@
           <url>file://$PROJECT_DIR$/Models/2R2C/physical_model.py</url>
           <line>38</line>
           <option name="timeStamp" value="298" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Models/RC/RC_model.py</url>
-          <line>106</line>
-          <option name="timeStamp" value="309" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Models/RC/RC_model.py</url>
-          <line>101</line>
-          <option name="timeStamp" value="312" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/XGBoost/xgboost_model.py</url>
@@ -448,33 +454,58 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/VAR/VAR_model.py</url>
-          <line>97</line>
+          <line>95</line>
           <option name="timeStamp" value="428" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Models/VAR/VAR_model.py</url>
-          <line>92</line>
-          <option name="timeStamp" value="434" />
+          <url>file://$PROJECT_DIR$/Models/RC/RC_model.py</url>
+          <line>129</line>
+          <option name="timeStamp" value="516" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PID/PID.py</url>
+          <line>83</line>
+          <option name="timeStamp" value="528" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/RC/RC_model_verification.py</url>
-          <line>48</line>
-          <option name="timeStamp" value="466" />
+          <line>43</line>
+          <option name="timeStamp" value="529" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Models/RC/RC_model.py</url>
-          <line>81</line>
-          <option name="timeStamp" value="468" />
+          <url>file://$PROJECT_DIR$/Models/VAR/VAR_model.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="536" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PID/PID.py</url>
-          <line>103</line>
-          <option name="timeStamp" value="494" />
+          <url>file://$PROJECT_DIR$/Models/VAR/VAR_model.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="538" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PID/PID.py</url>
-          <line>88</line>
-          <option name="timeStamp" value="501" />
+          <url>file://$PROJECT_DIR$/RL/DQN/DQN.py</url>
+          <line>95</line>
+          <option name="timeStamp" value="599" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RL/DQN/DQN.py</url>
+          <line>197</line>
+          <option name="timeStamp" value="604" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RL/DQN/DQN.py</url>
+          <line>152</line>
+          <option name="timeStamp" value="607" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RL/DQN/DQN.py</url>
+          <line>146</line>
+          <option name="timeStamp" value="608" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RL/DQN/Test_agent.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="610" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
