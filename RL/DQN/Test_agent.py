@@ -2,9 +2,16 @@ import pandas as pd
 import tensorflow as tf
 import numpy as np
 from matplotlib import pyplot as plt
+import warnings
+warnings.filterwarnings("ignore")
 
 df= pd.read_csv('C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set_HR.csv',sep=";")
-df['consigne'] = np.where((df['hour'] >= 8) & (df['hour'] <= 20), 18, 15)
+# df=df[150:]
+# df['consigne'] = np.where((df['hour'] >= 8) & (df['hour'] <= 20), 18, 15)
+df['consigne'] = np.where((df['hour'] >= 8) & (df['hour'] <= 17), 18, np.nan)
+df['consigne'] = np.where((df['hour'] >= 20), 15, df['consigne'])
+df['consigne'] = np.where((df['hour'] <= 5) & (df['hour'] <= 23), 15, df['consigne'])
+df['consigne'].interpolate(inplace=True)
 import heater_env
 
 PATH_TO_OUTPUT_MODELS = "C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\RL\\DQN\\models\\target_net"
@@ -22,7 +29,7 @@ for index in range(df.shape[0]):
     next_state, reward, done, _,__ = env.step(action)
     state=next_state
     TiList.append(next_state[0])
-index=50
+index=1000
 figure,axs =plt.subplots(3)
 axs[0].plot(actionList[:index])
 axs[1].plot(TiList[:index])

@@ -8,17 +8,21 @@ import itertools
 from matplotlib import pyplot as plt
 from  itertools import accumulate
 import pandas as pd
+import warnings
+warnings.filterwarnings("ignore")
+
+
 # PATH
 PATH_TO_OUTPUT_MODELS = "C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\RL\\DQN\\models\\"
 
 # HYPERPARAMETERS
 EPOCHS=100
-hidden_units = [256,256,256]
+hidden_units = [128,128]
 eps_start = 1
 eps_end = 0.000
-eps_decay = 0.0001
+eps_decay = 0.001
 batch_size=32
-gamma = 0.99
+gamma = 0.85
 lr = 0.001
 target_update = 25
 losses=[]
@@ -84,7 +88,7 @@ class DQN_Agent():
         self.num_actions = num_actions
 
     def select_action(self, state, policy_net):
-        rate = self.strategy.get_exploration_rate(self.current_step)
+        rate = max(self.strategy.get_exploration_rate(self.current_step),0.001)
         self.current_step += 1
         if rate > random.random():
             return random.randrange(self.num_actions), rate, True
@@ -122,12 +126,15 @@ if __name__ == "__main__":
     target_net = Model(env.observation_space.shape[0], hidden_units, env.action_space.n)
     optimizer = tf.optimizers.Adam(lr)
     epoch=0
+    timeStepList=[]
+    avg_reward_timestep=[]
     while True:
     # for epoch in range(EPOCHS):
 
         state=env.reset()
         done = False
         ep_rewards=0
+
         for timestep in itertools.count():
             action, rate, flag = agent.select_action(state, policy_net)
             next_state, reward, done, _,__ = env.step(action)
@@ -177,16 +184,17 @@ if __name__ == "__main__":
 
             if done :
                 break
-
+        timeStepList.append(timestep)
+        AvgTimeStep=np.mean(timeStepList)
         total_rewards.append(ep_rewards)
         copy_weights(policy_net, target_net)
-        print('EPOCH: ' + str(epoch) +'-rate: '+str(agent.strategy.get_exploration_rate(agent.current_step))+'- Reward : '+str(total_rewards[-1])+'-timestep: '+str(timestep)+'-R/t: '+str(total_rewards[-1]/(timestep+1)))
+        print('EPOCH: ' + str(epoch) +'-rate: '+str(agent.strategy.get_exploration_rate(agent.current_step))+'- Reward : '+str(total_rewards[-1])+'-timestep: '+str(timestep)+'-Avg_TimeStep: '+str(AvgTimeStep)+'Avg reawrd: '+str(np.mean(total_rewards[-5:])))
         if epoch>50 and epoch%100==0:
             save(target_net, "target_net", PATH_TO_OUTPUT_MODELS)
             save(policy_net, "policy_net", PATH_TO_OUTPUT_MODELS)
         epoch+=1
-
-        if epoch==1000:
+        test=timeStepList[-5:]
+        if agent.strategy.get_exploration_rate(agent.current_step)<0.05 and np.mean(total_rewards[-5:])>=150:
             break
 
 
