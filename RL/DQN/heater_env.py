@@ -37,13 +37,13 @@ class heaterEnvRC(gym.Env[np.ndarray, Union[int, np.ndarray]]):
         low = np.array([0,0,0,0,0], dtype=np.float32, )
         high = np.array([100,100,100,100,100],dtype=np.float32,)
 
-        self.action_space = spaces.Discrete(21)
+        self.action_space = spaces.Discrete(31)
         self.observation_space = spaces.Box(low, high, dtype=np.float32)
         self.continuousRewardserie=0
         # self.consigne=18
 
     def step(self,action):
-        gas_value=200*action/20
+        gas_value=300*action/30
         Tint1=self.previousTint[-1]*self.gamma+(self.R*gas_value+self.Text[self.t])*(1-self.gamma)
         self.state=(Tint1,
                     self.data['consigne'].to_list()[self.t+1],
@@ -60,11 +60,11 @@ class heaterEnvRC(gym.Env[np.ndarray, Union[int, np.ndarray]]):
         #
 
 
-        terminated = bool(Tint1 < 0.95 * self.consigneList[self.t] or Tint1 > 1.05 * self.consigneList[self.t] or self.t==200)
-
+        # terminated = bool(Tint1 < 0.95 * self.consigneList[self.t] or Tint1 > 1.05 * self.consigneList[self.t] or self.t==200)
+        terminated=bool(Tint1 < 0.95 * self.consigneList[self.t] or self.t==1000)
         if not terminated:
             # reward=1.0-0.8*gas_value/200-0.8*abs((Tint1-self.data['consigne'].to_list()[self.t]))
-            reward=1-0.0*(action/20)
+            reward=1-0.5*(action/30)-0.5*abs((Tint1-self.data['consigne'].to_list()[self.t]))
             self.t += 1
             self.previousTint.append(Tint1)
             self.continuousRewardserie+=1

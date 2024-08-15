@@ -7,7 +7,6 @@
     <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240810-DQN ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RL/DQN/DQN.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL/DQN/DQN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RL/DQN/Test_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL/DQN/Test_agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RL/DQN/heater_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL/DQN/heater_env.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -495,23 +494,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RL/DQN/DQN.py</url>
-          <line>99</line>
+          <line>101</line>
           <option name="timeStamp" value="599" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RL/DQN/DQN.py</url>
-          <line>205</line>
+          <line>209</line>
           <option name="timeStamp" value="604" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RL/DQN/Test_agent.py</url>
           <line>30</line>
           <option name="timeStamp" value="610" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/RL/DQN/DQN.py</url>
-          <line>187</line>
-          <option name="timeStamp" value="611" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RL/DQN/heater_env.py</url>

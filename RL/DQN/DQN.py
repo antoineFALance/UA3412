@@ -20,7 +20,7 @@ EPOCHS=100
 hidden_units = [128,128]
 eps_start = 1
 eps_end = 0.000
-eps_decay = 0.001
+eps_decay = 0.00001
 batch_size=32
 gamma = 0.85
 lr = 0.001
@@ -87,15 +87,17 @@ class DQN_Agent():
         self.strategy = strategy
         self.num_actions = num_actions
 
-    def select_action(self, state, policy_net):
-        rate = max(self.strategy.get_exploration_rate(self.current_step),0.001)
+    def select_action(self, state, policy_net,rate):
+        # rate = max(self.strategy.get_exploration_rate(self.current_step),0.001)
         self.current_step += 1
         if rate > random.random():
-            return random.randrange(self.num_actions), rate, True
+            # return random.randrange(self.num_actions), rate, True
+            return random.randrange(self.num_actions), True
         else:
             try:
                 test =state
-                return np.argmax(policy_net(np.atleast_2d(np.atleast_2d(state).astype('float32')))), rate, False
+                # return np.argmax(policy_net(np.atleast_2d(np.atleast_2d(state).astype('float32')))), rate, False
+                return np.argmax(policy_net(np.atleast_2d(np.atleast_2d(state).astype('float32')))), False
             except:
                 pass
 
@@ -128,6 +130,7 @@ if __name__ == "__main__":
     epoch=0
     timeStepList=[]
     avg_reward_timestep=[]
+    rate=1
     while True:
     # for epoch in range(EPOCHS):
 
@@ -136,7 +139,7 @@ if __name__ == "__main__":
         ep_rewards=0
 
         for timestep in itertools.count():
-            action, rate, flag = agent.select_action(state, policy_net)
+            action, flag = agent.select_action(state, policy_net,rate=rate)
             next_state, reward, done, _,__ = env.step(action)
 
             ep_rewards += reward
@@ -192,9 +195,10 @@ if __name__ == "__main__":
         if epoch>50 and epoch%100==0:
             save(target_net, "target_net", PATH_TO_OUTPUT_MODELS)
             save(policy_net, "policy_net", PATH_TO_OUTPUT_MODELS)
+        rate = max(agent.strategy.get_exploration_rate(agent.current_step), 0.001)
         epoch+=1
         test=timeStepList[-5:]
-        if agent.strategy.get_exploration_rate(agent.current_step)<0.05 and np.mean(total_rewards[-5:])>=150:
+        if agent.strategy.get_exploration_rate(agent.current_step)<0.05 and np.mean(total_rewards[-5:])>=750:
             break
 
 
