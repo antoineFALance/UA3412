@@ -25,8 +25,8 @@ output=df_RC['Tint1'].to_numpy()
 p_opt, p_cov = so.curve_fit(f=Tint,
                             xdata=inputs,
                             ydata=output,
-                            p0=(0.01,1000),
-                            bounds=([0.01,0.01], [1000,1000])
+                            p0=(0.01,100),
+                            bounds=([0.01,0.05], [100,200])
                             )
 
 gamma=math.exp(-1/(p_opt[0]*p_opt[1]))

@@ -1,6 +1,6 @@
 import random
 import tensorflow as tf
-from heater_env import heaterEnvRC
+from heater_env2 import heaterEnvRC
 from collections import deque
 import numpy as np
 import math
@@ -10,25 +10,24 @@ from  itertools import accumulate
 import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
-tf.random.set_seed(1234)
+
 
 # PATH
-PATH_TO_OUTPUT_MODELS = "C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\RL\\DQN\\models\\"
+PATH_TO_OUTPUT_MODELS = "C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\RL\\DQN_2\\models\\"
 
 # HYPERPARAMETERS
 EPOCHS=100
-hidden_units = [128,128,128]
+hidden_units = [128,128]
 eps_start = 1
 eps_end = 0.000
-eps_decay = 0.01
+eps_decay = 0.0001
 batch_size=32
-gamma = 0.8
+gamma = 0.85
 lr = 0.001
 target_update = 25
 losses=[]
 ep_rewards = 0
 total_rewards = []
-memoryCapacity=1500
 
 class EpsilonGreedyStrategy():
 	"""
@@ -121,7 +120,7 @@ if __name__ == "__main__":
     env = heaterEnvRC()
     strategy = EpsilonGreedyStrategy(eps_start, eps_end, eps_decay)
     agent = DQN_Agent(strategy,env.action_space.n)
-    memory=MemoryBuffer(capacity=memoryCapacity)
+    memory=MemoryBuffer(capacity=1000)
     ep_rewards = 0
 
     # Initialize the policy and target network
@@ -131,7 +130,6 @@ if __name__ == "__main__":
     epoch=0
     timeStepList=[]
     avg_reward_timestep=[]
-    ratio_reward_timeStep=[]
     rate=1
     while True:
     # for epoch in range(EPOCHS):
@@ -189,28 +187,24 @@ if __name__ == "__main__":
 
             if done :
                 break
-        ratio_reward_timeStep.append(ep_rewards / (timestep+1))
         timeStepList.append(timestep)
         AvgTimeStep=np.mean(timeStepList)
         total_rewards.append(ep_rewards)
         copy_weights(policy_net, target_net)
-        print('EPOCH: ' + str(epoch) +'-rate: '+str(rate)+'- Reward : '+str(total_rewards[-1])+'-timestep: '+str(timestep)+'-ratio Time step rward: '+str(ep_rewards/(timestep+1))+'Avg ratio: '+str(np.mean(ratio_reward_timeStep[-5:])))
-        # if epoch>50 and epoch%100==0:
-        #     save(target_net, "target_net", PATH_TO_OUTPUT_MODELS)
-        #     save(policy_net, "policy_net", PATH_TO_OUTPUT_MODELS)
-        rate=max(eps_start * math.exp(-1*epoch*eps_decay),0.001)
-        # rate = max(agent.strategy.get_exploration_rate(agent.current_step), 0.001)
-        epoch+=1
-
-        # if agent.strategy.get_exploration_rate(agent.current_step)<0.01 and timestep>=1900 and total_rewards[-1]>=1700:
-        if rate<0.002 and np.mean(ratio_reward_timeStep[-5:])>=0.9 and timestep>=110:
-            copy_weights(policy_net, target_net)
+        print('EPOCH: ' + str(epoch) +'-rate: '+str(agent.strategy.get_exploration_rate(agent.current_step))+'- Reward : '+str(total_rewards[-1])+'-timestep: '+str(timestep)+'-Avg_TimeStep: '+str(AvgTimeStep)+'Avg reawrd: '+str(np.mean(total_rewards[-5:])))
+        if epoch>50 and epoch%100==0:
             save(target_net, "target_net", PATH_TO_OUTPUT_MODELS)
             save(policy_net, "policy_net", PATH_TO_OUTPUT_MODELS)
+        rate = max(agent.strategy.get_exploration_rate(agent.current_step), 0.001)
+        epoch+=1
+        test=timeStepList[-5:]
+        if agent.strategy.get_exploration_rate(agent.current_step)<0.05 and np.mean(total_rewards[-5:])>=150:
             break
 
 
 CumulativeAvgReward = [np.mean(total_rewards[0:index]) for index in range(1,len(total_rewards))]
 plt.plot(list(CumulativeAvgReward))
 plt.show()
+save(target_net,"target_net",PATH_TO_OUTPUT_MODELS)
+save(policy_net,"policy_net",PATH_TO_OUTPUT_MODELS)
 print('ok')

@@ -1,6 +1,6 @@
 import random
 import tensorflow as tf
-from heater_env import heaterEnvRC
+from heater_env3 import heaterEnvRC
 from collections import deque
 import numpy as np
 import math
@@ -13,9 +13,10 @@ warnings.filterwarnings("ignore")
 tf.random.set_seed(1234)
 
 # PATH
-PATH_TO_OUTPUT_MODELS = "C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\RL\\DQN\\models\\"
+PATH_TO_OUTPUT_MODELS = "C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\RL\\DQN_3\\models\\"
 
 # HYPERPARAMETERS
+
 EPOCHS=100
 hidden_units = [128,128,128]
 eps_start = 1
@@ -28,7 +29,7 @@ target_update = 25
 losses=[]
 ep_rewards = 0
 total_rewards = []
-memoryCapacity=1500
+memoryCapacity=3000
 
 class EpsilonGreedyStrategy():
 	"""
@@ -99,6 +100,7 @@ class DQN_Agent():
                 test =state
                 # return np.argmax(policy_net(np.atleast_2d(np.atleast_2d(state).astype('float32')))), rate, False
                 return np.argmax(policy_net(np.atleast_2d(np.atleast_2d(state).astype('float32')))), False
+                # return np.argmin(policy_net(np.atleast_2d(np.atleast_2d(state).astype('float32')))), False
             except:
                 pass
 
@@ -198,12 +200,13 @@ if __name__ == "__main__":
         # if epoch>50 and epoch%100==0:
         #     save(target_net, "target_net", PATH_TO_OUTPUT_MODELS)
         #     save(policy_net, "policy_net", PATH_TO_OUTPUT_MODELS)
-        rate=max(eps_start * math.exp(-1*epoch*eps_decay),0.001)
+        rate=max(eps_start * math.exp(-1*epoch*eps_decay),0.05)
         # rate = max(agent.strategy.get_exploration_rate(agent.current_step), 0.001)
         epoch+=1
 
         # if agent.strategy.get_exploration_rate(agent.current_step)<0.01 and timestep>=1900 and total_rewards[-1]>=1700:
-        if rate<0.002 and np.mean(ratio_reward_timeStep[-5:])>=0.9 and timestep>=110:
+        # if np.mean(ratio_reward_timeStep[-5:])>=0.9 and timestep>=190:
+        if epoch==1000:
             copy_weights(policy_net, target_net)
             save(target_net, "target_net", PATH_TO_OUTPUT_MODELS)
             save(policy_net, "policy_net", PATH_TO_OUTPUT_MODELS)

@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240810-DQN ok">
+    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240815-DQN ok">
+      <change afterPath="$PROJECT_DIR$/RL/DQN_2/DQN2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/DQN_2/Test_agent2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/DQN_2/heater_env2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/DQN_3/DQN3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/DQN_3/Test_agent3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/DQN_3/heater_env3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SIMPLEX/simplex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/RC/RC_model_verification.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RC/RC_model_verification.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RL/DQN/DQN.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL/DQN/DQN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RL/DQN/Test_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL/DQN/Test_agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RL/DQN/heater_env.py" beforeDir="false" afterPath="$PROJECT_DIR$/RL/DQN/heater_env.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +66,7 @@
       <recent name="$PROJECT_DIR$/Dataset" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Test_agent">
+  <component name="RunManager" selected="Python.simplex">
     <configuration name="DQN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -79,7 +88,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PID" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="DQN3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -87,32 +96,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PID" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RL/DQN_3" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PID/PID.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="RC_model_verification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="UA3412" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/RC" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/RC/RC_model_verification.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RL/DQN_3/DQN3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -142,7 +130,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="VAR_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_agent3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -150,11 +138,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/VAR" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RL/DQN_3" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/VAR/VAR_model.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RL/DQN_3/Test_agent3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="simplex" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="UA3412" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SIMPLEX" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SIMPLEX/simplex.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.simplex" />
         <item itemvalue="Python.Test_agent" />
+        <item itemvalue="Python.Test_agent3" />
+        <item itemvalue="Python.DQN3" />
         <item itemvalue="Python.DQN" />
-        <item itemvalue="Python.VAR_model" />
-        <item itemvalue="Python.PID" />
-        <item itemvalue="Python.RC_model_verification" />
       </list>
     </recent_temporary>
   </component>
@@ -318,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1723320487125</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="20240815-DQN ok">
+      <created>1723745489210</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1723745489210</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,7 +363,8 @@
     <MESSAGE value="20240801" />
     <MESSAGE value="20240810" />
     <MESSAGE value="20240810-DQN ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="20240810-DQN ok" />
+    <MESSAGE value="20240815-DQN ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="20240815-DQN ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -498,24 +515,19 @@
           <option name="timeStamp" value="599" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/RL/DQN/DQN.py</url>
-          <line>209</line>
-          <option name="timeStamp" value="604" />
+          <url>file://$PROJECT_DIR$/RL/DQN_3/Test_agent3.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="617" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RL/DQN/Test_agent.py</url>
-          <line>30</line>
-          <option name="timeStamp" value="610" />
+          <line>46</line>
+          <option name="timeStamp" value="618" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/RL/DQN/heater_env.py</url>
-          <line>31</line>
-          <option name="timeStamp" value="613" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/RL/DQN/heater_env.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="614" />
+          <url>file://$PROJECT_DIR$/SIMPLEX/simplex.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="629" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
