@@ -2,6 +2,7 @@ import math
 import scipy.optimize as so
 import pandas as pd
 from matplotlib import pyplot as plt
+import numpy as np
 
 PATH_TO_MAIN_FILE="C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set.csv"
 PATH_TO_HOUR_FILE="C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set_HR.csv"
@@ -26,11 +27,11 @@ p_opt, p_cov = so.curve_fit(f=Tint,
                             xdata=inputs,
                             ydata=output,
                             p0=(0.01,100),
-                            bounds=([0.01,0.05], [100,200])
+                            bounds=([0.0,0], [np.inf,np.inf])
                             )
 
 gamma=math.exp(-1/(p_opt[0]*p_opt[1]))
-df_RC_hr=pd.read_csv(PATH_TO_HOUR_FILE,sep=";")
+df_RC_hr=pd.read_csv(PATH_TO_MAIN_FILE,sep=";")
 df_RC_hr['Tint1']=df_RC_hr['Tint'].shift(-1)
 df_RC_hr.dropna(inplace=True)
 

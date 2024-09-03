@@ -44,6 +44,7 @@ df_gas_pulse['day']=df_gas_pulse['time_stamp'].dt.day
 df_gas_pulse['hour']=df_gas_pulse['time_stamp'].dt.hour
 df_gas_pulse['min']=df_gas_pulse['time_stamp'].dt.minute
 df_gas_pulse_min=df_gas_pulse[['year','month','day','hour','min','value']].groupby(by=['year','month','day','hour','min'],as_index=False).sum()
+df_gas_pulse_min.rename(columns={"value":"gas_value"},inplace=True)
 
 # LIVING ROOM
 df_Tint_living = pd.read_csv(PATH_TO_LIVING_TINT_FILE,sep=";",header=None)
@@ -109,29 +110,39 @@ df=df_main.merge(df_gas_pulse_min,on=['year','month','day','hour','min'],how='le
     .merge(df_Tint_min[['year','month','day','hour','min','Tint']],on=['year','month','day','hour','min'],how='left')\
     .merge(df_Text[['year','month','day','hour','Text']],on=['year','month','day','hour'],how='left')
 
-df.rename(columns={'value': 'gas_value'},inplace=True)
+# df.rename(columns={'value': 'gas_value'},inplace=True)
 df['gas_value']=df['gas_value']/10
-df['gas_value']=df['gas_value']-df['gas_value'].min()
+df['gas_value'].fillna(0,inplace=True)
 df['Tint']=df['Tint']/10
 df['Tint'].interpolate(inplace=True)
-df_1=df[['year','month','day','hour','min','Tint','Text']]
+df_1=df[['year','month','day','hour','min','Tint','Text','gas_value']]
 df_1.dropna(inplace=True)
+# DECEMBRE
+df_1=df_1[(df_1['year']==2017) &(df_1['month']==12) & (df_1['day']==8) & (df_1['hour']==19)]
 df_1['t']=np.array(range(1,df_1.shape[0]+1))
-R,C,=1.5,800
+
+
+
+
+R,C,=0.15,50
 T0=df_1['Tint'].tolist()[0]
 TiList = df_1['Tint'].tolist()
 TeList = df_1['Text'].tolist()
 gas_value_corrected=[]
 for t in tqdm(range(df_1.shape[0])):
-    gamma=math.exp(-t/(R*C))
+    gamma=math.exp(-1/(R*C))
     try:
-        Ti=TiList[t]
+        Ti=TiList[t+1]
+        Ti_1=TiList[t]
         Te=TeList[t]
-        gas_value_corrected.append(max(0,Ti/(R*(1-gamma))-Te/R-gamma/(R*(1-gamma))*T0))
+        # gas_value_corrected.append(max(0,Ti/(R*(1-gamma))-Te/R-gamma/(R*(1-gamma))*T0))
+        noise=np.random.normal(0,5,1)[0]
+        gas_value_corrected.append(max(0,1/(R*(1-gamma))*(Ti-gamma*Ti_1-Te*(1-gamma))))
     except:
         gas_value_corrected.append(0)
 
 df_1['gas_value_corrected']=np.array(gas_value_corrected)
+print('ok')
 
 # fig, axs = plt.subplots(3)
 # axs[0].plot(df_1['Text'].tolist(),c='blue')
@@ -140,7 +151,7 @@ df_1['gas_value_corrected']=np.array(gas_value_corrected)
 # axs[1].plot(df_1['gas_value_corrected'].tolist(),c='green')
 # plt.show()
 #
-# df_1.to_csv('C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set.csv',sep=";",index=False)
-# df_1_hr=df_1.groupby(['year','month','day','hour'],as_index=False).agg({'Text':'mean','Tint':'mean','gas_value_corrected':'sum'})
-# df_1_hr.to_csv('C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set_HR.csv',sep=";",index=False)
+df_1.to_csv('C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set.csv',sep=";",index=False)
+df_1_hr=df_1.groupby(['year','month','day','hour'],as_index=False).agg({'Text':'mean','Tint':'mean','gas_value_corrected':'sum','gas_value':'sum'})
+df_1_hr.to_csv('C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set_HR.csv',sep=";",index=False)
 

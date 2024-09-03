@@ -41,8 +41,8 @@ nb_days=60
 # DONNEES
 time = 0.0
 
-R=1.5
-C=800
+R=0.1
+C=500
 
 lastErrorList = [0]
 integralList = [0]
@@ -57,7 +57,7 @@ current_value_list=[0]
 current_value = 0
 t=0
 k=1
-nb_hours=500
+nb_hours=100
 for hour in tqdm(range(nb_hours)):
     gas_value_list = []
     text=TextList[hour]
@@ -69,7 +69,7 @@ for hour in tqdm(range(nb_hours)):
         # CALCUL ERREUR
         error = setpoint - current_value_list[-1]
         errorList.append(error)
-        phi,integral=PID(Kp=0.01, Ki=0.01, Kd=0.0,integral=integralList[-1],lasterror=lastErrorList[-1],error=error)
+        phi,integral=PID(Kp=0.1, Ki=0.0, Kd=0.0,integral=integralList[-1],lasterror=lastErrorList[-1],error=error)
         phi=k*phi
         integralList.append(integral)
         lastErrorList.append(error)

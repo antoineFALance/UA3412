@@ -42,14 +42,14 @@ class heaterEnvRC(gym.Env[np.ndarray, Union[int, np.ndarray]]):
         low = np.array([0,0,0,], dtype=np.float32, )
         high = np.array([100,100,100],dtype=np.float32,)
 
-        self.action_space = spaces.Discrete(31)
+        self.action_space = spaces.Discrete(51)
         self.observation_space = spaces.Box(low, high, dtype=np.float32)
         self.continuousRewardserie=0
         # self.consigne=18
 
     def step(self,action):
         terminated=False
-        gas_value=400*action/30
+        gas_value=1000*action/50
         Tint1=self.previousTint[-1]*self.gamma+(self.R*gas_value+self.Text[self.t])*(1-self.gamma)
         self.state=(Tint1,
                     self.data['consigne'].to_list()[self.t+1],

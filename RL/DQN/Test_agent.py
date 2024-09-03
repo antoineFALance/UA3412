@@ -27,21 +27,20 @@ state=env.reset()
 agent = tf.keras.models.load_model(PATH_TO_OUTPUT_MODELS)
 actionList,TiList=[],[]
 
-idx=50
+idx=100
 for index in range(idx):
     action =np.argmax(agent(np.atleast_2d(np.atleast_2d(state).astype('float32'))))
-    actionList.append(action)
+    actionList.append(action*1000/100)
     next_state, reward, done, _,__ = env.step(action)
     state=next_state
     TiList.append(next_state[0])
 
 
-figure,axs =plt.subplots(4)
+figure,axs =plt.subplots(3)
 axs[0].plot(actionList[:idx])
 axs[1].plot(TiList[:idx])
 axs[1].plot(df['consigne'].to_list()[:idx],c='orange')
-axs[2].plot(df['energy_cost'].to_list()[:idx],c='red')
-axs[3].plot(df['Text'].to_list()[:idx])
+axs[2].plot(df['Text'].to_list()[:idx])
 plt.show()
 totalCost=sum(actionList[:idx])
 print("Conso energie: "+str(totalCost))

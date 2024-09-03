@@ -45,7 +45,7 @@ class heaterEnvRC(gym.Env[np.ndarray, Union[int, np.ndarray]]):
 
     def step(self,action):
         terminated=False
-        gas_value=400*action/30
+        gas_value=1000*action/100
         Tint1=self.previousTint[-1]*self.gamma+(self.R*gas_value+self.Text[self.t])*(1-self.gamma)
         self.state=(Tint1,
                     self.data['consigne'].to_list()[self.t+1],
