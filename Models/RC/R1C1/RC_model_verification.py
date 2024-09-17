@@ -4,8 +4,8 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import numpy as np
 
-PATH_TO_MAIN_FILE="C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set.csv"
-PATH_TO_HOUR_FILE="C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set_HR.csv"
+PATH_TO_MAIN_FILE= "/IDEAL_home106/home106_main_data_set.csv"
+PATH_TO_HOUR_FILE= "/IDEAL_home106/home106_main_data_set_HR.csv"
 
 def Tint(input,R,C):
     Tint_1=input[:,0]

@@ -66,8 +66,8 @@ with open(PATH_TO_OUTPUT_RESULT + 'results.csv', 'a') as f_object:
     # Johansen cross-integration test
     # try:
     scaler = StandardScaler()
-    VAR_data[VAR_data.columns] = scaler.fit_transform(VAR_data)
-    ad_Fuller_p_values=[adfuller(VAR_data[col]) for col in VAR_data.columns ]
+    # VAR_data[VAR_data.columns] = scaler.fit_transform(VAR_data)
+    ad_Fuller_p_values=[adfuller(VAR_data[col])[1] for col in VAR_data.columns ]
 
     johansen_test = coint_johansen(VAR_data,-1,1).eig
 

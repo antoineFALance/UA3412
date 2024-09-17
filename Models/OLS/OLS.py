@@ -50,7 +50,7 @@ def windowing(dataset,windowRange):
 
 # PATH DEFINITION
 if is_windows:
-    PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.path.dirname(os.getcwd()))+"\\data_\\dataset_gas_value_corrected\\"
+    PATH_TO_INPUT_DIR_DATA='C:\\Users\\a.lance\\PycharmProjects\\UA3412_\\IDEAL_home106\\home106_main_data_set_HR.csv'
     PATH_TO_OUTPUT_DIR_DATA=os.path.dirname(os.path.dirname(os.getcwd()))+"\\Models\\OLS\\results\\"
 else:
     PATH_TO_INPUT_DIR_DATA= os.path.dirname(os.path.dirname(os.getcwd()))+"/data_/dataset_gas_value_corrected/"
@@ -58,75 +58,40 @@ else:
 directory = os.fsencode(PATH_TO_INPUT_DIR_DATA)
 
 df_res=pd.DataFrame()
-for file in os.listdir(directory):
-    print(file)
-    filename = os.fsdecode(file)
-    home_id = re.search('(.*)_dataset.csv', filename).group(1)
-    fullFileName=PATH_TO_INPUT_DIR_DATA+filename
-    df_temp=pd.DataFrame()
-    RList, CList = [], []
-    Ri_List,R0_List,Ci_List,Ce_List=[],[],[],[]
-    df_dataset = pd.read_csv(fullFileName, sep=";")
-    df_dataset['ti_1']=df_dataset['Tint'].shift(1)
-    df_dataset['ti_2'] = df_dataset['Tint'].shift(2)
-    df_dataset['ti_3'] = df_dataset['Tint'].shift(3)
-
-    df_dataset['te_1'] = df_dataset['Text'].shift(1)
-    df_dataset['te_2'] = df_dataset['Text'].shift(2)
-    df_dataset['te_3'] = df_dataset['Text'].shift(3)
-    df_dataset['te_4'] = df_dataset['Text'].shift(4)
-
-    df_dataset['gas_value_1'] = df_dataset['gas_value'].shift(1)
-    df_dataset['gas_value_2'] = df_dataset['gas_value'].shift(2)
-    df_dataset['gas_value_3'] = df_dataset['gas_value'].shift(3)
-    df_dataset['gas_value_4'] = df_dataset['gas_value'].shift(4)
-    df_dataset['pressure_4'] = df_dataset['pressure'].shift(4)
-
-    df_ols = df_dataset[['Tint',
-                         'te_1',
-                         'te_2',
-                         'te_3',
-                         'te_4',
-                         'gas_value_1',
-                         'gas_value_2',
-                         'gas_value_3',
-                         'gas_value_4',
-                         'pressure_4']].dropna()
-
-    params={}
-
-    # df_ols = (df_ols-df_ols.mean())/(df_ols.std())
-    x_train,x_test,y_train,y_test=train_test_split(df_ols[['te_1','te_2','te_3','te_4','gas_value_1','gas_value_2','gas_value_3','gas_value_4','pressure_4']].to_numpy(),df_ols[['Tint']].to_numpy().flatten(),test_size=0.2,random_state=123)
-    ols=LinearRegression()
-    scores = cross_validate(ols,x_train,y_train,cv=5,scoring='neg_mean_squared_error',return_estimator=True)
-    df_temp['home_id']=np.array([home_id])
-    # df_temp['ti_1_coeff']=np.array([scores['estimator'][0].coef_[0]])
-    # df_temp['te_1_coeff'] = np.array([scores['estimator'][0].coef_[1]])
-    # df_temp['phi_1_coeff'] = np.array([scores['estimator'][0].coef_[2]])
-    # df_temp['intercept'] =np.array([scores['estimator'][0].intercept_])
-    # df_temp['mse'] = np.array([-scores['test_score'][0]])
-    df_res=pd.concat([df_res,df_temp])
-    y_pred = scores['estimator'][0].predict(x_test)
-    mse = mean_squared_error(y_test,y_pred)
-    residuals = y_test-y_pred
-
-    ax=plt.plot(y_pred, residuals, c='red', marker='o', linestyle="")
-    plt.title("residuels")
-    plt.xlabel("y_pred")
-    plt.ylabel("residuels")
-    save_figure(ax=ax, filename=home_id + "_" + "OLS_residuels", directory=PATH_TO_OUTPUT_DIR_DATA)
-    plt.close()
-    ax1=plt.plot(y_test,y_pred,c='black',marker='x',linestyle="")
-    plt.plot(range(14,30),range(14,30),c="green")
-    plt.show()
-    plt.title(home_id+" predictions / valeurs reel")
-    plt.xlabel("y_pred")
-    plt.ylabel("y_reel")
-    save_figure(ax=ax1, filename=home_id + "_" + "OLS_pred_reel",directory=PATH_TO_OUTPUT_DIR_DATA)
-    plt.close()
 
 
-df_res.to_csv(PATH_TO_OUTPUT_DIR_DATA+'OLS_model.csv',sep=";",index=False)
+df_temp=pd.DataFrame()
+RList, CList = [], []
+Ri_List,R0_List,Ci_List,Ce_List=[],[],[],[]
+df_dataset = pd.read_csv(PATH_TO_INPUT_DIR_DATA, sep=";")
+df_dataset=df_dataset[(((df_dataset['month']==11) & (df_dataset['day']>=25)) | (df_dataset['month']==12) | (df_dataset['month']==1)) & (df_dataset['year']==2017)]
+
+df_dataset['Tint1']=df_dataset['Tint'].shift(1)
+
+df_ols = df_dataset[['Tint','gas_value','Text','Tint1']].dropna()
+
+params={}
+
+# df_ols = (df_ols-df_ols.mean())/(df_ols.std())
+x_train,x_test,y_train,y_test=train_test_split(df_ols[['Tint','gas_value','Text']].to_numpy(),df_ols[['Tint1']].to_numpy().flatten(),test_size=0.2,random_state=123)
+ols=LinearRegression()
+scores = cross_validate(ols,x_train,y_train,cv=5,scoring='neg_mean_squared_error',return_estimator=True)
+df_res=pd.concat([df_res,df_temp])
+y_pred = scores['estimator'][0].predict(x_test)
+mse = mean_squared_error(y_test,y_pred)
+residuals = y_test-y_pred
+
+ax=plt.plot(y_pred, residuals, c='red', marker='o', linestyle="")
+plt.title("residuels")
+plt.xlabel("y_pred")
+plt.ylabel("residuels")
+plt.show()
+ax1=plt.plot(y_test,y_pred,c='black',marker='x',linestyle="")
+plt.plot(range(14,30),range(14,30),c="green")
+plt.show()
+plt.xlabel("y_pred")
+plt.ylabel("y_reel")
+plt.close()
 
 
 

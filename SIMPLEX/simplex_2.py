@@ -1,4 +1,5 @@
 import pandas as pd
+import scipy.linalg
 from scipy.optimize import milp
 from scipy.optimize import LinearConstraint
 from scipy.optimize import linprog
@@ -21,6 +22,7 @@ df['consigne'].interpolate(inplace=True)
 # Tc=df['consigne'].to_list()[:hour_range]
 Tc=df['Tint'].to_list()[:hour_range]
 Text=df['Text'].to_list()[:hour_range]
+Tint=df['Text'].to_list()[:hour_range]
 phi=df['gas_value'].to_list()[:hour_range]
 T0=df['Tint'].to_list()[0]
 # df[14:37].plot(x='hour',y='consigne')
@@ -36,10 +38,10 @@ RMSEList_=[]
 bestCfgList=[]
 df_result=pd.DataFrame()
 
-for RC in range(50,200):
+for RC in range(1,500):
     print('RC: '+str(RC))
     # RC=50
-    RList=[value/100 for value in range(1,100,5)]
+    RList=[value/10 for value in range(1,100,5)]
     C_inertia_list=[RC/R for R in RList]
     # R=0.3
     # C_inertia=50/R
@@ -50,24 +52,21 @@ for RC in range(50,200):
         R, C_inertia = Combinations[index][0], Combinations[index][1]
         # R,C_inertia=cfg[0],cfg[1]
         gamma=math.exp(-1/(R*C_inertia))
-        C=np.array([-1]*(hour_range-1)).reshape(-1,1)
-        C_col=np.array([gamma**index for index in range(0,hour_range-1)]).reshape(-1,1)
-        for idx in range(1,hour_range-1):
-            test = C_col[:hour_range-idx-1,0].reshape(-1,1)
-            C_col_i=np.vstack([np.array([0]*idx).reshape(-1,1),test.reshape(-1,1)])
-            C_col=np.hstack([C_col,C_col_i])
-        A=-(1-gamma)*R*C_col
+        A=np.diag([gamma]*(hour_range-1))
+        A=A+np.diag([-1]*(A.shape[0]-1),1)
+        A=R*A[:-1,:]
         b_l=[]
-        for index in range(1,hour_range):
-            b_l.append(T0*gamma**(index)-Tc[index]+sum([Text[idx]*(1-gamma)*(gamma**(index-idx-1)) for idx in range(index)]))
+        for index in range(1,hour_range-1):
+            b_l.append(Text[index]-Tint[index-1]-Text[index-1]-Tc[index])
 
         b_ub=np.array(b_l).reshape(-1,1)
         bounds=[tuple([0,np.inf]) for _ in range(hour_range-1)]
-        res = linprog(-C,A,b_ub=b_ub,bounds=bounds)
+        C=np.array([1]*(hour_range-1))
+        res = linprog(C,A,b_ub=b_ub,bounds=bounds)
         action_resul=[action for action in list(res.x)]
         Tint_result=[T0]
         for index in range(hour_range-1):
-            Tint_result.append(gamma*Tint_result[-1]+(R*action_resul[index]+Text[index])*(1-gamma))
+            Tint_result.append(Text[index]+R*phi[index]+gamma*(Tint[index-1]-Text[index-1]-R*phi[index-1]))
 
         # correlation
         corrList.append(math.sqrt(mean_squared_error(action_resul,phi[:len(action_resul)])))
