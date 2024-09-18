@@ -90,7 +90,6 @@ def RCfunction3(q):
         te[t]=te[t-1]+dt/q[1]*((ti[t-1]-te[t-1])/q[2]+(to[t-1]-te[t-1])/q[3])
         ti[t]=ti[t-1]+dt/q[0]*((te[t-1]-ti[t-1])/q[2]+q[4]*(tret[t-1]-ti[t-1])+q[5]*Qs[t-1])
         tret[t] = tret[t - 1] + dt / Cwater * (Qheat[t - 1] - q[5] * (tret[t - 1] - ti[t - 1]))
-
     return ti
 
 inputs=df1[['time','Text','gas_value','rad_soleil']].to_numpy()
@@ -109,7 +108,7 @@ bounds = ([0,0.8e02], [0,1e02], [0,0.8e02],[ 0,0.8e02], [0,1e00], [0,1e00])
 # print(result)
 
 print('ok')
-df1=df[(df['year']==2018)&(df['month']==1) & (df['day']==4)]
+df1=df[(df['year']==2018)&(df['month']==1) & (df['day']==21)]
 df1['gas_value'].fillna(0,inplace=True)
 df1['time']=np.array(range(df1.shape[0]))
 

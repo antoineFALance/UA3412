@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240906-ok">
-      <change afterPath="$PROJECT_DIR$/Models/RC/R1C1/RC_RMSE.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/RC/R1C1/RC_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py" afterDir="false" />
+    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240917-ok">
+      <change afterPath="$PROJECT_DIR$/Models/RC/model_RC_1/model_3R2C.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/RC/model_RC_1/state_space.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/DNN/results_interpretation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DNN/results_interpretation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/OLS/OLS.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/OLS/OLS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/RC/Parameters_RC.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RC/R1C1/Parameters_RC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/RC/RC_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/RC/RC_model_verification.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RC/R1C1/RC_model_verification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/VAR/VAR_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/VAR/VAR_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SIMPLEX/simplex_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/SIMPLEX/simplex_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SIMPLEX/simplex_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/SIMPLEX/simplex_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +102,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="results_interpretation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="model_3R2C" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -118,32 +110,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/DNN" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/RC/model_RC_1" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/DNN/results_interpretation.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="simplex_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="UA3412" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SIMPLEX" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SIMPLEX/simplex_2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/RC/model_RC_1/model_3R2C.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -173,13 +144,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="state_space" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="UA3412" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/RC/model_RC_1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/RC/model_RC_1/state_space.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.modelRC_1" />
+        <item itemvalue="Python.model_3R2C" />
+        <item itemvalue="Python.state_space" />
         <item itemvalue="Python.RC_model" />
         <item itemvalue="Python.simplex_3" />
-        <item itemvalue="Python.simplex_2" />
-        <item itemvalue="Python.results_interpretation" />
       </list>
     </recent_temporary>
   </component>
@@ -356,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1725630268886</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="20240917-ok">
+      <created>1726584111037</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1726584111037</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -389,7 +388,8 @@
     <MESSAGE value="20240823-simplex ok" />
     <MESSAGE value="20240903-ok" />
     <MESSAGE value="20240906-ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="20240906-ok" />
+    <MESSAGE value="20240917-ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="20240917-ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -596,18 +596,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py</url>
-          <line>138</line>
+          <line>137</line>
           <option name="timeStamp" value="763" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py</url>
-          <line>130</line>
+          <line>129</line>
           <option name="timeStamp" value="765" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py</url>
-          <line>110</line>
+          <line>109</line>
           <option name="timeStamp" value="775" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/state_space.py</url>
+          <line>92</line>
+          <option name="timeStamp" value="781" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/state_space.py</url>
+          <line>55</line>
+          <option name="timeStamp" value="787" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/model_3R2C.py</url>
+          <line>119</line>
+          <option name="timeStamp" value="793" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
