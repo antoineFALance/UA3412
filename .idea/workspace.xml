@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240917-ok">
-      <change afterPath="$PROJECT_DIR$/Models/RC/model_RC_1/model_3R2C.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/RC/model_RC_1/state_space.py" afterDir="false" />
+    <list default="true" id="3c893c33-893b-438c-a02c-5c9f8bcc2de5" name="Changes" comment="20240918-ok">
+      <change afterPath="$PROJECT_DIR$/Models/Kalman Filter/Kalman Filter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/OLS/OLS_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/DQN_4/DQN_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/DQN_4/heater_env_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/DQN_4/test_agent_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/PPO_1/heater_env_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/PPO_1/ppo_agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RL/PPO_1/test_agent_ppo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SIMPLEX/simplex4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SIMPLEX/simplex5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/RC/model_RC_1/model_3R2C.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RC/model_RC_1/model_3R2C.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PID/PID.py" beforeDir="false" afterPath="$PROJECT_DIR$/PID/PID.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +69,8 @@
       <recent name="$PROJECT_DIR$/Dataset" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.modelRC_1">
-    <configuration name="RC_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.PID">
+    <configuration name="DQN_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -68,11 +78,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/RC" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RL/DQN_4" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\a.lance\PycharmProjects\UA3412_\Models\RC\R1C1\RC_model.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RL/DQN_4/DQN_4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -81,7 +91,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="modelRC_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Kalman Filter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -89,11 +99,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/RC/model_RC_1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/Kalman Filter" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/Kalman Filter/Kalman Filter.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -102,7 +112,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="model_3R2C" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="PID" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -110,11 +120,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/RC/model_RC_1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PID" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/RC/model_RC_1/model_3R2C.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PID/PID.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -123,7 +133,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="simplex_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_agent_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -131,11 +141,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SIMPLEX" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RL/DQN_4" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SIMPLEX/simplex_3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RL/DQN_4/test_agent_4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -144,7 +154,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="state_space" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test_agent_ppo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="UA3412" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -152,11 +162,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models/RC/model_RC_1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RL/PPO_1" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/RC/model_RC_1/state_space.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RL/PPO_1/test_agent_ppo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,11 +177,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.modelRC_1" />
-        <item itemvalue="Python.model_3R2C" />
-        <item itemvalue="Python.state_space" />
-        <item itemvalue="Python.RC_model" />
-        <item itemvalue="Python.simplex_3" />
+        <item itemvalue="Python.PID" />
+        <item itemvalue="Python.test_agent_ppo" />
+        <item itemvalue="Python.test_agent_4" />
+        <item itemvalue="Python.DQN_4" />
+        <item itemvalue="Python.Kalman Filter" />
       </list>
     </recent_temporary>
   </component>
@@ -355,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1726584111037</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="20240918-ok">
+      <created>1726664055002</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1726664055002</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -389,7 +406,8 @@
     <MESSAGE value="20240903-ok" />
     <MESSAGE value="20240906-ok" />
     <MESSAGE value="20240917-ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="20240917-ok" />
+    <MESSAGE value="20240918-ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="20240918-ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -505,11 +523,6 @@
           <option name="timeStamp" value="428" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PID/PID.py</url>
-          <line>83</line>
-          <option name="timeStamp" value="528" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/RC/R1C1/RC_model_verification.py</url>
           <line>44</line>
           <option name="timeStamp" value="529" />
@@ -543,11 +556,6 @@
           <url>file://$PROJECT_DIR$/SIMPLEX/simplex.py</url>
           <line>21</line>
           <option name="timeStamp" value="630" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/PID/PID.py</url>
-          <line>60</line>
-          <option name="timeStamp" value="641" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/RC/R1C1/RC_model_verification.py</url>
@@ -596,18 +604,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py</url>
-          <line>137</line>
+          <line>138</line>
           <option name="timeStamp" value="763" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py</url>
-          <line>129</line>
+          <line>130</line>
           <option name="timeStamp" value="765" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py</url>
-          <line>109</line>
-          <option name="timeStamp" value="775" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/state_space.py</url>
@@ -621,8 +624,83 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/model_3R2C.py</url>
-          <line>119</line>
-          <option name="timeStamp" value="793" />
+          <line>122</line>
+          <option name="timeStamp" value="799" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/OLS/OLS_2.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="820" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/OLS/OLS_2.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="822" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/RC/model_RC_1/modelRC_1.py</url>
+          <line>107</line>
+          <option name="timeStamp" value="823" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RL/DQN_4/test_agent_4.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="860" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RL/DQN_4/test_agent_4.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="867" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RL/DQN_4/heater_env_4.py</url>
+          <line>140</line>
+          <option name="timeStamp" value="871" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SIMPLEX/simplex4.py</url>
+          <line>131</line>
+          <option name="timeStamp" value="900" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SIMPLEX/simplex4.py</url>
+          <line>123</line>
+          <option name="timeStamp" value="904" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RL/PPO_1/test_agent_ppo.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="917" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RL/PPO_1/heater_env_1.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="930" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/Kalman Filter/Kalman Filter.py</url>
+          <line>97</line>
+          <option name="timeStamp" value="986" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Models/Kalman Filter/Kalman Filter.py</url>
+          <line>159</line>
+          <option name="timeStamp" value="987" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RL/DQN_4/DQN_4.py</url>
+          <line>193</line>
+          <option name="timeStamp" value="988" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PID/PID.py</url>
+          <line>170</line>
+          <option name="timeStamp" value="1007" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PID/PID.py</url>
+          <line>154</line>
+          <option name="timeStamp" value="1008" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -633,5 +711,10 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="Q_list[87]" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

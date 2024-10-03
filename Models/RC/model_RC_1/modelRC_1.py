@@ -62,7 +62,7 @@ def RCfunction2(q):
         dt = time[t] - time[t - 1]
         te[t]=te[t-1]+dt/q[1]*((ti[t-1]-te[t-1])/q[2]+(to[t-1]-te[t-1])/q[3])
         ti[t]=ti[t-1]+dt/q[0]*((te[t-1]-ti[t-1])/q[2]+q[4]*(tret[t-1]-ti[t-1])+q[5]*Qs[t-1])
-        tret[t] = tret[t - 1] + dt / Cwater * (Qheat[t - 1] - q[5] * (tret[t - 1] - ti[t - 1]))
+        tret[t] = tret[t - 1] + dt / Cwater * (Qheat[t - 1] - q[4] * (tret[t - 1] - ti[t - 1]))
 
     ti[np.isnan(ti)]=0
     ti[np.isinf(ti)] = 0
@@ -89,7 +89,7 @@ def RCfunction3(q):
         dt = time[t] - time[t - 1]
         te[t]=te[t-1]+dt/q[1]*((ti[t-1]-te[t-1])/q[2]+(to[t-1]-te[t-1])/q[3])
         ti[t]=ti[t-1]+dt/q[0]*((te[t-1]-ti[t-1])/q[2]+q[4]*(tret[t-1]-ti[t-1])+q[5]*Qs[t-1])
-        tret[t] = tret[t - 1] + dt / Cwater * (Qheat[t - 1] - q[5] * (tret[t - 1] - ti[t - 1]))
+        tret[t] = tret[t - 1] + dt / Cwater * (Qheat[t - 1] - q[4] * (tret[t - 1] - ti[t - 1]))
     return ti
 
 inputs=df1[['time','Text','gas_value','rad_soleil']].to_numpy()
@@ -103,12 +103,12 @@ outputs=df1['Tint_living'].to_numpy()
 #                          maxfev=100000,
 #                         full_output=True
 #                          )
-bounds = ([0,0.8e02], [0,1e02], [0,0.8e02],[ 0,0.8e02], [0,1e00], [0,1e00])
+# bounds = ([0,0.1e02], [0,5e03], [0,0.1e-01],[ 0,0.1e00], [0,1e01], [0,1e01])
 # result= de(RCfunction2,bounds,args=())
 # print(result)
 
 print('ok')
-df1=df[(df['year']==2018)&(df['month']==1) & (df['day']==21)]
+df1=df[(df['year']==2018)&(df['month']==1) & (df['day']==8)]
 df1['gas_value'].fillna(0,inplace=True)
 df1['time']=np.array(range(df1.shape[0]))
 
@@ -126,7 +126,8 @@ inputs=df1[['time','Text','gas_value','rad_soleil']].to_numpy()
 # print('ok')
 
 # df1['Tint_hat']=RCfunction3(result.x)
-df1['Tint_hat']=RCfunction3([ 3.078e+01,  9.702e+01,  1.413e+01,  7.950e+01,  2.878e-03,1.757e-01])
+# [  5.000e+01,  2.768e+03,  5.267e-02,  1.581e+00,  3.879e-02,5.051e+00]
+df1['Tint_hat']=RCfunction3([  9.000e+01,  3e+03,  6.0e-02,  2.5e+00,  3.879e-02,5.051e+00])
 figure,axs =plt.subplots(5)
 axs[0].plot(df1['gas_value'])
 axs[1].plot(df1['T_output_rad_living'])
